@@ -1,8 +1,19 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Blinker&display=swap');
 
+:root {
+  --primary: #e5e5e5;
+
+  // Default Layout
+  --default-layout-header-height: 120px;
+  --default-layout-max-width: 1200px;
+}
+
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 html {
