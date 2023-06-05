@@ -5,7 +5,7 @@ import images from '../../../../assets/images';
 
 function Featured() {
   return (
-    <div className={styles.container}>
+    <section className={styles.container}>
       <div className={clsx(styles.item, styles.gridOne)}>
         <Link to="/categories">
           <div className={styles.overlay}></div>
@@ -34,7 +34,7 @@ function Featured() {
           <p className={styles.desc}>Electronics</p>
         </Link>
       </div>
-    </div>
+    </section>
   );
 }
 

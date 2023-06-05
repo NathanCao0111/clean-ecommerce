@@ -38,7 +38,15 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease-in;
+  transition: {
+    property: all;
+    duration: 0.3s;
+    timing-function: ease-in;
+  }
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
 }
 
 .img {
