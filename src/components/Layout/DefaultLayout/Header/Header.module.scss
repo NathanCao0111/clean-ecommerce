@@ -18,3 +18,23 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.nav {
+  display: flex;
+}
+
+.navItem {
+  font-size: 1.8rem;
+  margin-right: 2.5rem;
+  text-transform: uppercase;
+}
+
+.link {
+  display: block;
+  color: #000;
+  text-decoration: none;
+}
+
+.navCart {
+  cursor: pointer;
+}

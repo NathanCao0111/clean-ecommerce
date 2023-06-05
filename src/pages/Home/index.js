@@ -1,5 +1,21 @@
+import styles from './Home.module.scss';
+import Featured from '../../components/Layout/components/Featured';
+import Proud from '../../components/Layout/components/Proud';
+import Banner from '../../components/Layout/components/Banner';
+import Trending from '../../components/Layout/components/Trending';
+import Newsletter from '../../components/Layout/components/Newsletter';
+
 function Home() {
-  return <h1>Home</h1>;
+  return (
+    <div className={styles.home}>
+      <Featured />
+      <Proud />
+      <Banner />
+      <Trending />
+      <Banner />
+      <Newsletter />
+    </div>
+  );
 }
 
 export default Home;

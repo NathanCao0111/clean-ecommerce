@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  gap: 1.3rem;
+  grid-template-areas:
+    'one two three'
+    'one two three-low';
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  height: 50rem;
+  margin-top: 1.3rem;
+}
