@@ -12,6 +12,8 @@ const images = {
   bodyOil: require('./products/body-oil-200ml.jpg'),
   monochromeLamp: require('./products/black-and-white-lamp.jpg'),
   shelf: require('./products/gejst-shelf-a-black-ash-black.jpg'),
+  bannerOne: require('./banner/bannerOne.jpg'),
+  bannerTwo: require('./banner/bannerTwo.jpg'),
 };
 
 export default images;

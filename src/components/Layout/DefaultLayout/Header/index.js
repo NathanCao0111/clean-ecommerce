@@ -21,7 +21,7 @@ function Header() {
           <Link to="/categories" className={clsx(styles.navItem, styles.link)}>
             Categories
           </Link>
-          <Link to="/productpage" className={clsx(styles.navItem, styles.link)}>
+          <Link to="/categories/product/1" className={clsx(styles.navItem, styles.link)}>
             Product Page
           </Link>
           <FontAwesomeIcon icon={faShoppingCart} className={clsx(styles.navItem, styles.navCart)} />

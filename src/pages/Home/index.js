@@ -12,7 +12,7 @@ function Home() {
       <Proud />
       <Banner />
       <Trending />
-      <Banner />
+      <Banner reverse="reverse" />
       <Newsletter />
     </div>
   );

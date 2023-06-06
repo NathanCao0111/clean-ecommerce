@@ -7,7 +7,7 @@ import Signup from '../pages/Signup';
 const publicRoutes = [
   { path: '/', component: Home },
   { path: '/categories', component: Categories },
-  { path: '/productpage', component: ProductPage },
+  { path: '/categories/product/:productId', component: ProductPage },
   { path: '/login', component: Login },
   { path: '/signup', component: Signup },
 ];
