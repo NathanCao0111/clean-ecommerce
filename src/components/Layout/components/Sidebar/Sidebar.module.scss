@@ -1,0 +1,32 @@
+.container {
+  width: 20%;
+  .filter {
+    padding: 2rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    h2 {
+      margin-bottom: 1rem;
+    }
+    .input {
+      display: flex;
+      align-items: center;
+      padding: 1rem 0;
+      gap: 1rem;
+    }
+    .inputRange input {
+      width: 8rem;
+      height: 3rem;
+      padding: 0.7rem;
+      outline: none;
+    }
+  }
+}
+
+.apply,
+.delete {
+  background-color: #000;
+  color: #fff;
+  height: 3rem;
+  margin-top: 2rem;
+  font-weight: 400;
+  width: 100%;
+}

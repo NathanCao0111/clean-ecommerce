@@ -1,10 +1,12 @@
 import styles from './Categories.module.scss';
+import Sidebar from '../../components/Layout/components/Sidebar';
 
 function Categories() {
   return (
-    <div className={styles.container}>
-      <h1>Categories</h1>
-    </div>
+    <section className={styles.container}>
+      <Sidebar />
+      <div className={styles.content}></div>
+    </section>
   );
 }
 
