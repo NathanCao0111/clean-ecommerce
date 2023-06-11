@@ -1,5 +1,7 @@
 import styles from './Sidebar.module.scss';
 import clsx from 'clsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 function Sidebar() {
   return (
@@ -39,7 +41,9 @@ function Sidebar() {
         <h2>Price range</h2>
         <div className={clsx(styles.input, styles.inputRange)}>
           <input type="text" placeholder="$ FROM" />
-          <span>&nbsp; - &nbsp;</span>
+          <span>
+            <FontAwesomeIcon icon={faArrowRight} />
+          </span>
           <input type="text" placeholder="$ TO" />
         </div>
         <button className={styles.apply}>APPLY</button>

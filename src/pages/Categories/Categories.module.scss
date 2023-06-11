@@ -13,14 +13,24 @@
       .search {
         width: 50%;
         margin-top: 2rem;
-        display: flex;
-        justify-content: center;
-        input {
-          font-size: 1.7rem;
-          padding: 0.7rem;
-          margin-right: 0.7rem;
-          border: 2px solid rgba(0, 0, 0, 0.2);
-          outline: none;
+        border: 2px solid rgba(0, 0, 0, 0.2);
+        form {
+          display: flex;
+          justify-content: space-between;
+          input {
+            flex: 1;
+            font-size: 1.7rem;
+            padding: 0.7rem;
+            border: none;
+            outline: none;
+          }
+          button {
+            width: 4rem;
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-size: 1.7rem;
+          }
         }
       }
       h3 {
