@@ -3,8 +3,17 @@ import Sidebar from '../../components/Layout/components/Sidebar';
 import Proud from '../../components/Layout/components/Proud';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { useEffect } from 'react';
+import useProducts from '../../context/useProducts';
 
 function Categories() {
+  const productsData = useProducts();
+  const [, setCategoryProducts] = productsData.categoryProductsContext;
+
+  useEffect(() => {
+    setCategoryProducts(true);
+  }, []);
+
   return (
     <section className={styles.container}>
       <Sidebar />

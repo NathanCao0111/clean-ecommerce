@@ -12,12 +12,16 @@
       padding: 1rem 0;
       gap: 1rem;
     }
+    .input input {
+      cursor: pointer;
+    }
     .inputRange input {
       width: 8rem;
       height: 3rem;
       padding: 0.7rem;
       outline: none;
       border: 1px solid rgba(0, 0, 0, 0.2);
+      cursor: text;
     }
     .inputRange span {
       font-size: 1.4rem;
@@ -33,4 +37,5 @@
   margin-top: 2rem;
   font-weight: 400;
   width: 100%;
+  cursor: pointer;
 }

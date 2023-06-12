@@ -8,7 +8,7 @@ import useProducts from '../../../../context/useProducts';
 
 function Trending() {
   const productsData = useProducts();
-  const [products] = productsData;
+  const [products] = productsData.productsContext;
   const [scroll, setScroll] = useState(0);
 
   const handlePrevScroll = () => {
