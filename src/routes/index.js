@@ -3,13 +3,15 @@ import Categories from '../pages/Categories';
 import ProductPage from '../pages/ProductPage';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
+import PageNotFound from '../pages/PageNotFound';
 
 const publicRoutes = [
   { path: '/', component: Home },
   { path: '/categories', component: Categories },
-  { path: '/categories/product/:productId', component: ProductPage },
+  { path: '/product/:productId', component: ProductPage },
   { path: '/login', component: Login },
   { path: '/signup', component: Signup },
+  { path: '*', component: PageNotFound },
 ];
 
 const privateRoutes = [

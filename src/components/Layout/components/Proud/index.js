@@ -15,7 +15,7 @@ function Proud() {
           .map((element) => {
             return (
               <div key={element.id} className={styles.item}>
-                <Link to={`categories/product/${element.id}`}>
+                <Link to={`/product/${element.id}`}>
                   <div className={styles.itemHeader}>
                     <img src={element.image} alt={element.title} />
                   </div>

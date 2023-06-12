@@ -2,10 +2,13 @@ import styles from './Trending.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLeftLong, faRightLong } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
-import products from '../../../../data';
+// import products from '../../../../data';
 import { useState } from 'react';
+import useProducts from '../../../../context/useProducts';
 
 function Trending() {
+  const productsData = useProducts();
+  const [products] = productsData;
   const [scroll, setScroll] = useState(0);
 
   const handlePrevScroll = () => {
