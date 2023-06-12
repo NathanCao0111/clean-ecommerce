@@ -1,8 +1,11 @@
 import styles from './Proud.module.scss';
-import products from '../../../../data';
 import { Link } from 'react-router-dom';
+import useProducts from '../../../../context/useProducts';
 
 function Proud() {
+  const productsData = useProducts();
+  const [products] = productsData;
+
   return (
     <section className={styles.container}>
       <h2 className={styles.heading}>Products we are proud of</h2>
