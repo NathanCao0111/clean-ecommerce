@@ -22,6 +22,20 @@
 
 .nav {
   display: flex;
+  div {
+    position: relative;
+    left: -32px;
+    top: -16px;
+    background-color: #b6002c;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    width: 20px;
+    height: 20px;
+    padding: 4px;
+    text-align: center;
+  }
 }
 
 .navItem {

@@ -4,8 +4,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
+import useProducts from '../../../../context/useProducts';
 
 function Header() {
+  const cartQuantData = useProducts();
+  const [cartQuantVisible] = cartQuantData.cartQuantVisibleContext;
+
   return (
     <header className={styles.wrapper}>
       <div className={styles.container}>
@@ -25,6 +29,7 @@ function Header() {
             Product Page
           </Link>
           <FontAwesomeIcon icon={faShoppingCart} className={clsx(styles.navItem, styles.navCart)} />
+          {cartQuantVisible && <div>1</div>}
         </nav>
       </div>
     </header>
