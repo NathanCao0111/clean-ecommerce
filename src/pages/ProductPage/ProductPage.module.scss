@@ -1,0 +1,160 @@
+.container {
+  padding-top: 2rem;
+  .product {
+    display: flex;
+    margin-bottom: 8rem;
+    width: 100%;
+    position: relative;
+    h3 {
+      font-size: 3.5rem;
+      position: absolute;
+      left: 50%;
+      top: 8px;
+      transform: translate(-50%);
+    }
+    .left {
+      width: 50%;
+      height: 100%;
+      padding-top: 5rem;
+      .bigImg {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 70%;
+        margin-left: 1rem;
+        img {
+          width: 75%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .smallImgs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 3rem 2rem;
+        width: 100%;
+        img {
+          cursor: pointer;
+          width: 22%;
+          height: 20%;
+          object-fit: cover;
+
+          &:hover {
+            box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.18);
+            outline: 1px solid rgba(0, 0, 0, 0.3);
+          }
+        }
+      }
+    }
+    .right {
+      background-color: var(--primary);
+      width: 50%;
+      height: 100%;
+      padding: 16rem 5rem 8rem;
+      .desc {
+        font-size: 2rem;
+        line-height: 1.5;
+        margin-bottom: 5rem;
+      }
+      .quant {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 5rem;
+        .btns {
+          display: flex;
+          border: 1px solid #000;
+          button {
+            background-color: #fff;
+            color: #000;
+            width: 5.5rem;
+            height: 5.5rem;
+            border: none;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: {
+              property: all;
+              duration: 0.2s;
+            }
+
+            &:first-child {
+              border-right: 1px solid #000;
+            }
+
+            &:last-child {
+              border-left: 1px solid #000;
+            }
+          }
+          p {
+            width: 6rem;
+            height: 5rem;
+            text-align: center;
+            padding-top: 1rem;
+          }
+        }
+      }
+      .atcBuy {
+        display: flex;
+        gap: 2rem;
+        button {
+          width: 50%;
+          height: 5.5rem;
+          font-size: 1.6rem;
+          font-weight: 700;
+          cursor: pointer;
+          transition: {
+            property: all;
+            duration: 0.2s;
+          }
+        }
+        .atc {
+          background-color: initial;
+          border: 2px solid #000;
+
+          &:hover {
+            background-color: #000;
+            color: #fff;
+          }
+        }
+        .buy {
+          background-color: #b6002c;
+          border: 2px solid #b6002c;
+          color: #fff;
+
+          &:hover {
+            background-color: initial;
+            color: #b6002c;
+          }
+        }
+      }
+    }
+  }
+
+  .specs {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    width: 100%;
+    height: 10rem;
+    margin-bottom: 8rem;
+    .spec {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: var(--primary);
+      padding: 2rem;
+      .specTitle {
+        font-size: 2.2rem;
+        font-weight: 600;
+      }
+      .specDesc {
+        font-size: 1.65rem;
+      }
+    }
+  }
+}

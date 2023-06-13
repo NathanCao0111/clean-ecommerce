@@ -17,7 +17,7 @@ function Proud() {
                 <div key={element.id} className={styles.item}>
                   <Link to={`/product/${element.id}`}>
                     <div className={styles.itemHeader}>
-                      <img src={element.image} alt={element.title} />
+                      <img src={element.image.bigImg} alt={element.title} />
                     </div>
                     <div className={styles.itemDetails}>
                       <p className={styles.itemTitle}>{element.title}</p>
@@ -34,7 +34,7 @@ function Proud() {
                   <div key={element.id} className={styles.item}>
                     <Link to={`/product/${element.id}`}>
                       <div className={styles.itemHeader}>
-                        <img src={element.image} alt={element.title} />
+                        <img src={element.image.bigImg} alt={element.title} />
                       </div>
                       <div className={styles.itemDetails}>
                         <p className={styles.itemTitle}>{element.title}</p>

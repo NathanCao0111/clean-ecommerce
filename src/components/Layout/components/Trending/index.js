@@ -38,9 +38,9 @@ function Trending() {
           .map((element) => {
             return (
               <div key={element.id} className={styles.item} style={{ transform: `translateX(-${scroll * 23.2}rem)` }}>
-                <Link to={`/categories/product/${element.id}`}>
+                <Link to={`/product/${element.id}`}>
                   <div className={styles.itemHeader}>
-                    <img src={element.image} alt={element.title} />
+                    <img src={element.image.bigImg} alt={element.title} />
                   </div>
                   <div className={styles.itemDetails}>
                     <p className={styles.itemTitle}>{element.title}</p>

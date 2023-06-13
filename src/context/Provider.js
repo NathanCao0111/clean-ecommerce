@@ -6,7 +6,7 @@ function Provider({ children }) {
   const [categoryProducts, setCategoryProducts] = useState(false);
 
   useEffect(() => {
-    fetch('https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products')
+    fetch('https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/')
       .then((response) => response.json())
       .then((data) => setProducts(data));
   }, []);
