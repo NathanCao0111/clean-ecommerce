@@ -1,18 +1,32 @@
 import styles from './Proud.module.scss';
 import { Link } from 'react-router-dom';
 import useProducts from '../../../../context/useProducts';
+import { useState, useEffect } from 'react';
 
 function Proud() {
   const productsData = useProducts();
   const [products] = productsData.productsContext;
+  const [checkboxCategories] = productsData.checkboxCategoriesContext;
   const [categoryProducts] = productsData.categoryProductsContext;
+  const [updatedProducts, setUpdatedProducts] = useState(products);
+
+  useEffect(() => {
+    if (checkboxCategories[0] === undefined || checkboxCategories.includes(0)) {
+      setUpdatedProducts(products);
+    } else {
+      const res = products.filter((product) => {
+        return checkboxCategories.some((id) => product.category === id);
+      });
+      setUpdatedProducts(res);
+    }
+  }, [checkboxCategories]);
 
   return (
     <section className={styles.container}>
       <h2 className={styles.heading}>Products we are proud of</h2>
       <div className={styles.grid}>
         {categoryProducts === true
-          ? products.map((element) => {
+          ? updatedProducts?.map((element) => {
               return (
                 <div key={element.id} className={styles.item}>
                   <Link to={`/product/${element.id}`}>
@@ -27,9 +41,9 @@ function Proud() {
                 </div>
               );
             })
-          : products
+          : updatedProducts
               .filter((element) => element.id <= 8)
-              .map((element) => {
+              ?.map((element) => {
                 return (
                   <div key={element.id} className={styles.item}>
                     <Link to={`/product/${element.id}`}>

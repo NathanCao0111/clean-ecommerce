@@ -21,7 +21,7 @@ function Provider({ children }) {
         weight: '15kg',
         size: '150cm x 70cm',
       },
-      stars: 5,
+      category: 5,
       id: '1',
     },
     {
@@ -42,7 +42,7 @@ function Provider({ children }) {
         weight: '3.5kg',
         size: '20cm x 10cm',
       },
-      stars: 4,
+      category: 4,
       id: '2',
     },
     {
@@ -63,7 +63,7 @@ function Provider({ children }) {
         weight: '2kg',
         size: '15cm x 15cm',
       },
-      stars: 2,
+      category: 3,
       id: '3',
     },
     {
@@ -84,7 +84,7 @@ function Provider({ children }) {
         weight: '45kg',
         size: '250cm x 60cm',
       },
-      stars: 4,
+      category: 1,
       id: '4',
     },
     {
@@ -105,7 +105,7 @@ function Provider({ children }) {
         weight: '3kg',
         size: '20cm x 20cm',
       },
-      stars: 3,
+      category: 3,
       id: '5',
     },
     {
@@ -126,7 +126,7 @@ function Provider({ children }) {
         weight: '200ml',
         size: '10cm x 5cm',
       },
-      stars: 4,
+      category: 6,
       id: '6',
     },
     {
@@ -149,7 +149,7 @@ function Provider({ children }) {
         weight: '6kg',
         size: '20cm x 20cm',
       },
-      stars: 4,
+      category: 3,
       id: '7',
     },
     {
@@ -170,7 +170,7 @@ function Provider({ children }) {
         weight: '10kg',
         size: '60cm x 20cm',
       },
-      stars: 5,
+      category: 1,
       id: '8',
     },
     {
@@ -191,7 +191,7 @@ function Provider({ children }) {
         weight: '12kg',
         size: '45cm x 15cm',
       },
-      stars: 5,
+      category: 1,
       id: '9',
     },
     {
@@ -212,7 +212,7 @@ function Provider({ children }) {
         weight: '8kg',
         size: '60cm x 40cm',
       },
-      stars: 5,
+      category: 5,
       id: '10',
     },
     {
@@ -233,7 +233,7 @@ function Provider({ children }) {
         weight: '4kg',
         size: '20cm x 20cm',
       },
-      stars: 3,
+      category: 3,
       id: '11',
     },
     {
@@ -254,7 +254,7 @@ function Provider({ children }) {
         weight: '4kg',
         size: '15cm x 15cm',
       },
-      stars: 4,
+      category: 3,
       id: '12',
     },
     {
@@ -274,7 +274,7 @@ function Provider({ children }) {
         weight: '180g',
         size: '20cm x 10cm',
       },
-      stars: 3,
+      category: 6,
       id: '13',
     },
     {
@@ -295,7 +295,7 @@ function Provider({ children }) {
         weight: '15kg',
         size: '60cm x 30cm',
       },
-      stars: 5,
+      category: 5,
       id: '14',
     },
     {
@@ -316,7 +316,7 @@ function Provider({ children }) {
         weight: '14kg',
         size: '65cm x 35cm',
       },
-      stars: 5,
+      category: 5,
       id: '15',
     },
     {
@@ -337,7 +337,7 @@ function Provider({ children }) {
         weight: '2kg',
         size: '15cm x 10cm',
       },
-      stars: 2,
+      category: 2,
       id: '16',
     },
     {
@@ -358,7 +358,7 @@ function Provider({ children }) {
         weight: '5kg',
         size: '25cm x 15cm',
       },
-      stars: 4,
+      category: 3,
       id: '17',
     },
     {
@@ -379,7 +379,7 @@ function Provider({ children }) {
         weight: '6kg',
         size: '20cm x 15cm',
       },
-      stars: 3,
+      category: 3,
       id: '18',
     },
     {
@@ -400,7 +400,7 @@ function Provider({ children }) {
         weight: '25kg',
         size: '60cm x 30cm',
       },
-      stars: 4,
+      category: 5,
       id: '19',
     },
     {
@@ -421,13 +421,14 @@ function Provider({ children }) {
         weight: '50ml',
         size: '10cm x 5cm',
       },
-      stars: 1,
+      category: 6,
       id: '20',
     },
   ]);
 
   const [categoryProducts, setCategoryProducts] = useState(false);
   const [cartQuantVisible, setCartQuantVisible] = useState(false);
+  const [checkboxCategories, setCheckboxCategories] = useState([]);
 
   useEffect(() => {
     fetch('https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/')
@@ -439,6 +440,7 @@ function Provider({ children }) {
     productsContext: [products, setProducts],
     categoryProductsContext: [categoryProducts, setCategoryProducts],
     cartQuantVisibleContext: [cartQuantVisible, setCartQuantVisible],
+    checkboxCategoriesContext: [checkboxCategories, setCheckboxCategories],
   };
 
   return <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>;

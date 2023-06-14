@@ -2,40 +2,43 @@ import styles from './Sidebar.module.scss';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import useProducts from '../../../../context/useProducts';
 
 function Sidebar() {
+  const productsData = useProducts();
+  const [checkboxCategories, setCheckboxCategories] = productsData.checkboxCategoriesContext;
+  const categories = [
+    { id: 0, type: 'All' },
+    { id: 1, type: 'Furnitures' },
+    { id: 2, type: 'Electronics' },
+    { id: 3, type: 'Lamps' },
+    { id: 4, type: 'Kitchen' },
+    { id: 5, type: 'Chairs' },
+    { id: 6, type: 'Skincare' },
+  ];
+
+  const handleCheckboxChange = (e) => {
+    const idCheckbox = Number(e.target.value);
+
+    if (checkboxCategories.includes(idCheckbox)) {
+      setCheckboxCategories(checkboxCategories.filter((id) => id !== idCheckbox));
+    } else {
+      setCheckboxCategories((prev) => [...prev, idCheckbox]);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.filter}>
         <h2>Categories</h2>
-        <div className={styles.input}>
-          <input type="checkbox" id="1" value={1} />
-          <label htmlFor="1">All</label>
-        </div>
-        <div className={styles.input}>
-          <input type="checkbox" id="2" value={2} />
-          <label htmlFor="2">Furnitures</label>
-        </div>
-        <div className={styles.input}>
-          <input type="checkbox" id="3" value={3} />
-          <label htmlFor="3">Electronics</label>
-        </div>
-        <div className={styles.input}>
-          <input type="checkbox" id="4" value={4} />
-          <label htmlFor="4">Lamps</label>
-        </div>
-        <div className={styles.input}>
-          <input type="checkbox" id="5" value={5} />
-          <label htmlFor="5">Kitchen</label>
-        </div>
-        <div className={styles.input}>
-          <input type="checkbox" id="6" value={6} />
-          <label htmlFor="6">Chairs</label>
-        </div>
-        <div className={styles.input}>
-          <input type="checkbox" id="7" value={7} />
-          <label htmlFor="7">Skincare</label>
-        </div>
+        {categories.map((element) => {
+          return (
+            <div key={element.id} className={styles.input}>
+              <input type="checkbox" id={element.id} value={element.id} onChange={(e) => handleCheckboxChange(e)} />
+              <label htmlFor={element.id}>{element.type}</label>
+            </div>
+          );
+        })}
       </div>
       <div className={styles.filter}>
         <h2>Price range</h2>
