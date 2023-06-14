@@ -428,7 +428,10 @@ function Provider({ children }) {
 
   const [categoryProducts, setCategoryProducts] = useState(false);
   const [cartQuantVisible, setCartQuantVisible] = useState(false);
+  const [updatedProducts, setUpdatedProducts] = useState(products);
   const [checkboxCategories, setCheckboxCategories] = useState([]);
+  const [fromRange, setFromRange] = useState('');
+  const [toRange, setToRange] = useState(1000);
 
   useEffect(() => {
     fetch('https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/')
@@ -441,6 +444,9 @@ function Provider({ children }) {
     categoryProductsContext: [categoryProducts, setCategoryProducts],
     cartQuantVisibleContext: [cartQuantVisible, setCartQuantVisible],
     checkboxCategoriesContext: [checkboxCategories, setCheckboxCategories],
+    fromRangeContext: [fromRange, setFromRange],
+    toRangeContext: [toRange, setToRange],
+    updatedProductsContext: [updatedProducts, setUpdatedProducts],
   };
 
   return <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>;

@@ -1,25 +1,11 @@
 import styles from './Proud.module.scss';
 import { Link } from 'react-router-dom';
 import useProducts from '../../../../context/useProducts';
-import { useState, useEffect } from 'react';
 
 function Proud() {
   const productsData = useProducts();
-  const [products] = productsData.productsContext;
-  const [checkboxCategories] = productsData.checkboxCategoriesContext;
   const [categoryProducts] = productsData.categoryProductsContext;
-  const [updatedProducts, setUpdatedProducts] = useState(products);
-
-  useEffect(() => {
-    if (checkboxCategories[0] === undefined || checkboxCategories.includes(0)) {
-      setUpdatedProducts(products);
-    } else {
-      const res = products.filter((product) => {
-        return checkboxCategories.some((id) => product.category === id);
-      });
-      setUpdatedProducts(res);
-    }
-  }, [checkboxCategories]);
+  const [updatedProducts] = productsData.updatedProductsContext;
 
   return (
     <section className={styles.container}>
