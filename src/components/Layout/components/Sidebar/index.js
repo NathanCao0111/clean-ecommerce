@@ -12,6 +12,8 @@ function Sidebar() {
   const [fromRange, setFromRange] = productsData.fromRangeContext;
   const [toRange, setToRange] = productsData.toRangeContext;
   const [, setUpdatedProducts] = productsData.updatedProductsContext;
+  const [ascPrice, setAscPrice] = productsData.ascPriceContext;
+  const [descPrice, setDescPrice] = productsData.descPriceContext;
 
   const categories = [
     { id: 1, type: 'Furnitures' },
@@ -32,18 +34,38 @@ function Sidebar() {
     }
   };
 
+  const handleAscPrice = (e) => {
+    console.log(e.target.value);
+  };
+
+  const handleDescPrice = (e) => {
+    console.log(e.target.value);
+  };
+
   useEffect(() => {
-    if (checkboxCategories[0] === undefined && fromRange === '' && toRange === 1000) {
-      setUpdatedProducts(products);
-    } else {
-      const res = products.filter((element) => {
-        return (
-          checkboxCategories.some((id) => element.category === id) ||
-          (element.price >= Number(fromRange) && element.price <= Number(toRange))
-        );
-      });
-      setUpdatedProducts(res);
-    }
+    // if (checkboxCategories[0] === undefined && fromRange === '' && toRange === 1000) {
+    //   setUpdatedProducts(products);
+    // } else {
+    //   const res = products.filter((element) => {
+    //     if (checkboxCategories[0] === undefined) {
+    //       setCheckboxCategories([1, 2, 3, 4, 5, 6]);
+    //     }
+    //     return (
+    //       checkboxCategories.some((id) => element.category === id) &&
+    //       element.price >= Number(fromRange) &&
+    //       element.price <= Number(toRange)
+    //     );
+    //   });
+    //   setUpdatedProducts(res);
+    // }
+    const filteredData = products.filter((item) => {
+      const categoryMatch = checkboxCategories.length === 0 || checkboxCategories.includes(item.category);
+      const priceFrom = fromRange === '' || item.price >= parseInt(fromRange, 10);
+      const priceTo = toRange === '' || item.price <= parseInt(toRange, 10);
+
+      return categoryMatch && priceFrom && priceTo;
+    });
+    setUpdatedProducts(filteredData);
   }, [checkboxCategories, fromRange, toRange]);
 
   return (
@@ -72,11 +94,11 @@ function Sidebar() {
       <div className={styles.filter}>
         <h2>Sort by</h2>
         <div className={styles.input}>
-          <input type="radio" id="asc" value="asc" name="price" />
+          <input type="radio" id="asc" value={ascPrice} name="price" onChange={(e) => handleAscPrice(e)} />
           <label htmlFor="asc">Price (Lowest)</label>
         </div>
         <div className={styles.input}>
-          <input type="radio" id="desc" value="desc" name="price" />
+          <input type="radio" id="desc" value={descPrice} name="price" onChange={(e) => handleDescPrice(e)} />
           <label htmlFor="desc">Price (Highest)</label>
         </div>
       </div>
