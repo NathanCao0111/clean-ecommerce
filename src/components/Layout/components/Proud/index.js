@@ -4,6 +4,7 @@ import useProducts from '../../../../context/useProducts';
 
 function Proud() {
   const productsData = useProducts();
+  const [products] = productsData.productsContext;
   const [categoryProducts] = productsData.categoryProductsContext;
   const [updatedProducts] = productsData.updatedProductsContext;
 
@@ -27,7 +28,7 @@ function Proud() {
                 </div>
               );
             })
-          : updatedProducts
+          : products
               .filter((element) => element.id <= 8)
               ?.map((element) => {
                 return (

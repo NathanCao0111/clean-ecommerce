@@ -7,8 +7,9 @@ import clsx from 'clsx';
 import useProducts from '../../../../context/useProducts';
 
 function Header() {
-  const cartQuantData = useProducts();
-  const [cartQuantVisible] = cartQuantData.cartQuantVisibleContext;
+  const productsData = useProducts();
+  const [cartQuantVisible] = productsData.cartQuantVisibleContext;
+  const [, setCheckboxCategories] = productsData.checkboxCategoriesContext;
 
   return (
     <header className={styles.wrapper}>
@@ -22,7 +23,11 @@ function Header() {
           <Link to="/login" className={clsx(styles.navItem, styles.link)}>
             Login
           </Link>
-          <Link to="/categories" className={clsx(styles.navItem, styles.link)}>
+          <Link
+            to="/categories"
+            className={clsx(styles.navItem, styles.link)}
+            onClick={() => setCheckboxCategories([])}
+          >
             Categories
           </Link>
           <Link to="/product/1" className={clsx(styles.navItem, styles.link)}>

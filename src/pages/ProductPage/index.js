@@ -16,12 +16,7 @@ function ProductPage() {
   const [product, setProduct] = useState(products[id - 1]);
   const [quantity, setQuantity] = useState(1);
   const [notify, setNotify] = useState(false);
-
-  useEffect(() => {
-    fetch(`https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/${id}`)
-      .then((response) => response.json())
-      .then((data) => setProduct(data));
-  }, [id]);
+  const [displayImg, setDisplayImg] = useState(product.image.bigImg);
 
   const handleSubtract = () => {
     setQuantity(quantity <= 1 ? 1 : (prev) => prev - 1);
@@ -35,6 +30,16 @@ function ProductPage() {
     setNotify(true);
     setCartQuantVisible(true);
   };
+
+  useEffect(() => {
+    fetch(`https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/${id}`)
+      .then((response) => response.json())
+      .then((data) => setProduct(data));
+  }, [id]);
+
+  useEffect(() => {
+    setDisplayImg(product.image.bigImg);
+  }, [product.image.bigImg]);
 
   useEffect(() => {
     if (notify === true) {
@@ -60,12 +65,24 @@ function ProductPage() {
         <h3>{product.title}</h3>
         <div className={styles.left}>
           <div className={styles.bigImg}>
-            <img src={product.image.bigImg} alt={product.title} />
+            <img src={displayImg} alt={product.title} />
           </div>
           <div className={styles.smallImgs}>
-            <img src={product.image.smallImgs.smallImg1} alt={product.title} />
-            <img src={product.image.smallImgs.smallImg2} alt={product.title} />
-            <img src={product.image.smallImgs.smallImg3} alt={product.title} />
+            <img
+              src={product.image.smallImgs.smallImg1}
+              alt={product.title}
+              onMouseOver={() => setDisplayImg(product.image.smallImgs.smallImg1)}
+            />
+            <img
+              src={product.image.smallImgs.smallImg2}
+              alt={product.title}
+              onMouseOver={() => setDisplayImg(product.image.smallImgs.smallImg2)}
+            />
+            <img
+              src={product.image.smallImgs.smallImg3}
+              alt={product.title}
+              onMouseOver={() => setDisplayImg(product.image.smallImgs.smallImg3)}
+            />
           </div>
         </div>
         <div className={styles.right}>

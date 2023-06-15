@@ -37,4 +37,13 @@
   font-weight: 400;
   width: 100%;
   cursor: pointer;
+  transition: {
+    property: all;
+    duration: 0.15s;
+  }
+
+  &:hover {
+    background-color: initial;
+    color: #000;
+  }
 }
