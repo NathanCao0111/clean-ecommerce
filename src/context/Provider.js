@@ -432,8 +432,7 @@ function Provider({ children }) {
   const [checkboxCategories, setCheckboxCategories] = useState([]);
   const [fromRange, setFromRange] = useState('');
   const [toRange, setToRange] = useState('');
-  const [ascPrice, setAscPrice] = useState('');
-  const [descPrice, setDescPrice] = useState('');
+  const [sortPrice, setSortPrice] = useState('');
 
   useEffect(() => {
     fetch('https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/')
@@ -449,8 +448,7 @@ function Provider({ children }) {
     fromRangeContext: [fromRange, setFromRange],
     toRangeContext: [toRange, setToRange],
     updatedProductsContext: [updatedProducts, setUpdatedProducts],
-    ascPriceContext: [ascPrice, setAscPrice],
-    descPriceContext: [descPrice, setDescPrice],
+    sortPriceContext: [sortPrice, setSortPrice],
   };
 
   return <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>;
