@@ -1,6 +1,6 @@
 import styles from './Login.module.scss';
-import { FormControl, FormLabel, Input, FormHelperText, FormErrorMessage } from '@chakra-ui/react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Login() {
   const [userData, setUserData] = useState({
@@ -8,39 +8,50 @@ function Login() {
     password: '',
   });
 
+  const handleLoginBtn = () => {};
+
   console.log(userData);
 
   return (
-    <div>
-      <FormControl id="email">
-        <FormLabel>Email address</FormLabel>
-        <Input
-          type="email"
-          value={userData.email}
-          onChange={(e) =>
-            setUserData((prev) => ({
-              ...prev,
-              email: e.target.value,
-            }))
-          }
-        />
-        <FormHelperText>We'll never share your email.</FormHelperText>
-      </FormControl>
-      <FormControl id="password">
-        <FormLabel>Password</FormLabel>
-        <Input
-          type="password"
-          value={userData.password}
-          onChange={(e) =>
-            setUserData((prev) => ({
-              ...prev,
-              password: e.target.value,
-            }))
-          }
-        />
-        <FormHelperText>We'll never share your email.</FormHelperText>
-      </FormControl>
-    </div>
+    <section className={styles.container}>
+      <div className={styles.content}>
+        <h3>LOGIN</h3>
+        <div className={styles.email}>
+          <label htmlFor="email">Email address</label>
+          <input
+            type="email"
+            id="email"
+            spellCheck={false}
+            value={userData.email}
+            onChange={(e) =>
+              setUserData((prev) => ({
+                ...prev,
+                email: e.target.value,
+              }))
+            }
+          />
+        </div>
+        <div className={styles.password}>
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            spellCheck={false}
+            value={userData.password}
+            onChange={(e) =>
+              setUserData((prev) => ({
+                ...prev,
+                password: e.target.value,
+              }))
+            }
+          />
+        </div>
+        <button onClick={handleLoginBtn}>LOGIN</button>
+        <p>
+          Don't have an account? <Link to="/signup">Sign up</Link>
+        </p>
+      </div>
+    </section>
   );
 }
 
