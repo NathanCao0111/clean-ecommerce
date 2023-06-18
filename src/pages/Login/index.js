@@ -16,7 +16,7 @@ function Login() {
     <section className={styles.container}>
       <div className={styles.content}>
         <h3>LOGIN</h3>
-        <div className={styles.email}>
+        <div className={styles.inputContainer}>
           <label htmlFor="email">Email address</label>
           <input
             type="email"
@@ -31,7 +31,7 @@ function Login() {
             }
           />
         </div>
-        <div className={styles.password}>
+        <div className={styles.inputContainer}>
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -48,7 +48,9 @@ function Login() {
         </div>
         <button onClick={handleLoginBtn}>LOGIN</button>
         <p>
-          Don't have an account? <Link to="/signup">Sign up</Link>
+          <Link to="/signup">
+            Don't have an account? <span>Sign up</span>
+          </Link>
         </p>
       </div>
     </section>
