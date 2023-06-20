@@ -1,7 +1,12 @@
 import styles from './Login.module.scss';
+import clsx from 'clsx';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faXmarkSquare } from '@fortawesome/free-solid-svg-icons';
+import useProducts from '../../context/useProducts';
 
 function Login() {
   const validationSchema = Yup.object().shape({
@@ -15,6 +20,18 @@ function Login() {
   };
 
   const navigate = useNavigate();
+  const [incorrectNotify, setIncorrectNotify] = useState(false);
+  const loggedinData = useProducts();
+  const [, setLoggedin] = loggedinData.loggedinContext;
+  const [, setNameLoggedin] = loggedinData.nameLoggedinContext;
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIncorrectNotify(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [incorrectNotify]);
 
   const handleLoginSubmit = (values) => {
     const { email, password } = values;
@@ -26,12 +43,15 @@ function Login() {
         const validateUser = data.filter((element) => {
           if (element.email === email && element.password === password) {
             console.log(element);
+            setNameLoggedin(element.name);
             return element;
           }
+          setIncorrectNotify(true);
           return;
         });
         console.log(validateUser);
         if (validateUser.length !== 0) {
+          setLoggedin(true);
           navigate('/');
         }
       });
@@ -39,6 +59,14 @@ function Login() {
 
   return (
     <section className={styles.container}>
+      <div className={clsx(styles.notify, incorrectNotify === true ? styles.slideIn : '')}>
+        <p>
+          Incorrect email address or password &nbsp;
+          <span>
+            <FontAwesomeIcon icon={faXmarkSquare} />
+          </span>
+        </p>
+      </div>
       <div className={styles.content}>
         <h3>LOGIN</h3>
         <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleLoginSubmit}>

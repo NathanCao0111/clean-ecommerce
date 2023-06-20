@@ -10,6 +10,8 @@ function Header() {
   const productsData = useProducts();
   const [cartQuantVisible] = productsData.cartQuantVisibleContext;
   const [, setCheckboxCategories] = productsData.checkboxCategoriesContext;
+  const [loggedin, setLoggedin] = productsData.loggedinContext;
+  const [nameLoggedin, setNameLoggedin] = productsData.nameLoggedinContext;
 
   return (
     <header className={styles.wrapper}>
@@ -20,18 +22,22 @@ function Header() {
           </Link>
         </div>
         <nav className={styles.nav}>
-          <Link to="/login" className={clsx(styles.navItem, styles.link)}>
-            Login
-          </Link>
+          {loggedin === true ? (
+            <p className={clsx(styles.navItem, styles.link)}>Welcome, &nbsp; {nameLoggedin}</p>
+          ) : (
+            <Link to="/login" className={clsx(styles.navItem, styles.link)}>
+              Login
+            </Link>
+          )}
           <Link
             to="/categories"
             className={clsx(styles.navItem, styles.link)}
             onClick={() => setCheckboxCategories([])}
           >
-            Categories
+            CATEGORIES
           </Link>
           <Link to="/product/1" className={clsx(styles.navItem, styles.link)}>
-            Product Page
+            PRODUCT PAGE
           </Link>
           <FontAwesomeIcon icon={faShoppingCart} className={clsx(styles.navItem, styles.navCart)} />
           {cartQuantVisible && <div>1</div>}
