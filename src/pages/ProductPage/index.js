@@ -6,17 +6,20 @@ import Trending from '../../components/Layout/components/Trending';
 import useProducts from '../../context/useProducts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import { useDispatch } from 'react-redux';
+import { addToCart } from '../../redux/cartReducer';
 
 function ProductPage() {
   const productsData = useProducts();
   const [products] = productsData.productsContext;
-  const [, setCartQuantVisible] = productsData.cartQuantVisibleContext;
   const params = useParams();
   const id = params.productId;
   const [product, setProduct] = useState(products[id - 1]);
   const [quantity, setQuantity] = useState(1);
   const [notify, setNotify] = useState(false);
   const [displayImg, setDisplayImg] = useState(product.image.bigImg);
+
+  const dispatch = useDispatch();
 
   const handleSubtract = () => {
     setQuantity(quantity <= 1 ? 1 : (prev) => prev - 1);
@@ -28,7 +31,15 @@ function ProductPage() {
 
   const handleAtc = () => {
     setNotify(true);
-    setCartQuantVisible(true);
+    dispatch(
+      addToCart({
+        id: product.id,
+        title: product.title,
+        price: product.price,
+        image: product.image.bigImg,
+        quantity,
+      }),
+    );
   };
 
   useEffect(() => {

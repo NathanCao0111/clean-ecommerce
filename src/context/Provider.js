@@ -427,7 +427,6 @@ function Provider({ children }) {
   ]);
 
   const [categoryProducts, setCategoryProducts] = useState(false);
-  const [cartQuantVisible, setCartQuantVisible] = useState(false);
   const [updatedProducts, setUpdatedProducts] = useState(products);
   const [checkboxCategories, setCheckboxCategories] = useState([]);
   const [fromRange, setFromRange] = useState('');
@@ -435,6 +434,8 @@ function Provider({ children }) {
   const [sortPrice, setSortPrice] = useState('');
   const [loggedin, setLoggedin] = useState(false);
   const [nameLoggedin, setNameLoggedin] = useState('');
+  const [loggedinId, setLoggedinId] = useState('');
+  const [isCart, setIsCart] = useState(false);
 
   useEffect(() => {
     fetch('https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/')
@@ -445,7 +446,6 @@ function Provider({ children }) {
   const value = {
     productsContext: [products, setProducts],
     categoryProductsContext: [categoryProducts, setCategoryProducts],
-    cartQuantVisibleContext: [cartQuantVisible, setCartQuantVisible],
     checkboxCategoriesContext: [checkboxCategories, setCheckboxCategories],
     fromRangeContext: [fromRange, setFromRange],
     toRangeContext: [toRange, setToRange],
@@ -453,6 +453,8 @@ function Provider({ children }) {
     sortPriceContext: [sortPrice, setSortPrice],
     loggedinContext: [loggedin, setLoggedin],
     nameLoggedinContext: [nameLoggedin, setNameLoggedin],
+    loggedinIdContext: [loggedinId, setLoggedinId],
+    isCartContext: [isCart, setIsCart],
   };
 
   return <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>;

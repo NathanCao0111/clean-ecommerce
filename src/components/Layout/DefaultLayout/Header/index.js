@@ -5,13 +5,16 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import useProducts from '../../../../context/useProducts';
+import { useSelector } from 'react-redux';
 
 function Header() {
   const productsData = useProducts();
-  const [cartQuantVisible] = productsData.cartQuantVisibleContext;
   const [, setCheckboxCategories] = productsData.checkboxCategoriesContext;
-  const [loggedin, setLoggedin] = productsData.loggedinContext;
-  const [nameLoggedin, setNameLoggedin] = productsData.nameLoggedinContext;
+  const [loggedin] = productsData.loggedinContext;
+  const [nameLoggedin] = productsData.nameLoggedinContext;
+  const [, setIsCart] = productsData.isCartContext;
+
+  const cartProducts = useSelector((state) => state.cart.cartProducts);
 
   return (
     <header className={styles.wrapper}>
@@ -26,7 +29,7 @@ function Header() {
             <p className={clsx(styles.navItem, styles.link)}>Welcome, &nbsp; {nameLoggedin}</p>
           ) : (
             <Link to="/login" className={clsx(styles.navItem, styles.link)}>
-              Login
+              LOGIN
             </Link>
           )}
           <Link
@@ -39,8 +42,12 @@ function Header() {
           <Link to="/product/1" className={clsx(styles.navItem, styles.link)}>
             PRODUCT PAGE
           </Link>
-          <FontAwesomeIcon icon={faShoppingCart} className={clsx(styles.navItem, styles.navCart)} />
-          {cartQuantVisible && <div>1</div>}
+          <FontAwesomeIcon
+            icon={faShoppingCart}
+            className={clsx(styles.navItem, styles.navCart)}
+            onClick={() => setIsCart(true)}
+          />
+          <div>{cartProducts.length}</div>
         </nav>
       </div>
     </header>
