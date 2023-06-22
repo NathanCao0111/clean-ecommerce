@@ -13,6 +13,7 @@ function Sidebar() {
   const [toRange, setToRange] = productsData.toRangeContext;
   const [, setUpdatedProducts] = productsData.updatedProductsContext;
   const [sortPrice, setSortPrice] = productsData.sortPriceContext;
+  const [searchInput] = productsData.searchInputContext;
 
   const categories = [
     { id: 1, type: 'Furnitures' },
@@ -45,12 +46,13 @@ function Sidebar() {
   };
 
   useEffect(() => {
-    const filteredData = products.filter((item) => {
-      const categoryMatch = checkboxCategories.length === 0 || checkboxCategories.includes(item.category);
-      const priceFrom = fromRange === '' || item.price >= parseInt(fromRange, 10);
-      const priceTo = toRange === '' || item.price <= parseInt(toRange, 10);
+    const filteredData = products.filter((element) => {
+      const categoryMatch = checkboxCategories.length === 0 || checkboxCategories.includes(element.category);
+      const priceFrom = fromRange === '' || element.price >= parseInt(fromRange, 10);
+      const priceTo = toRange === '' || element.price <= parseInt(toRange, 10);
+      const search = searchInput === '' || element.title.toLowerCase().includes(searchInput.toLowerCase());
 
-      return categoryMatch && priceFrom && priceTo;
+      return categoryMatch && priceFrom && priceTo && search;
     });
     const sortFilteredData = filteredData.sort((a, b) => {
       if (sortPrice === 'lowest') {
@@ -62,7 +64,7 @@ function Sidebar() {
       }
     });
     setUpdatedProducts(sortFilteredData);
-  }, [checkboxCategories, fromRange, toRange, sortPrice]);
+  }, [checkboxCategories, fromRange, toRange, sortPrice, searchInput]);
 
   return (
     <div className={styles.container}>

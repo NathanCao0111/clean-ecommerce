@@ -436,6 +436,7 @@ function Provider({ children }) {
   const [nameLoggedin, setNameLoggedin] = useState('');
   const [loggedinId, setLoggedinId] = useState('');
   const [isCart, setIsCart] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
 
   useEffect(() => {
     fetch('https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/')
@@ -455,6 +456,7 @@ function Provider({ children }) {
     nameLoggedinContext: [nameLoggedin, setNameLoggedin],
     loggedinIdContext: [loggedinId, setLoggedinId],
     isCartContext: [isCart, setIsCart],
+    searchInputContext: [searchInput, setSearchInput],
   };
 
   return <ProductsContext.Provider value={value}>{children}</ProductsContext.Provider>;

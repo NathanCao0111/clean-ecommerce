@@ -1,7 +1,8 @@
 import styles from './Header.module.scss';
 import images from '../../../../assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import useProducts from '../../../../context/useProducts';
@@ -13,6 +14,7 @@ function Header() {
   const [loggedin] = productsData.loggedinContext;
   const [nameLoggedin] = productsData.nameLoggedinContext;
   const [, setIsCart] = productsData.isCartContext;
+  const [isDropdown, setIsDropdown] = useState(false);
 
   const cartProducts = useSelector((state) => state.cart.cartProducts);
 
@@ -26,7 +28,31 @@ function Header() {
         </div>
         <nav className={styles.nav}>
           {loggedin === true ? (
-            <p className={clsx(styles.navItem, styles.link)}>Welcome, &nbsp; {nameLoggedin}</p>
+            <>
+              <p className={clsx(styles.navItem, styles.link)} onClick={() => setIsDropdown(!isDropdown)}>
+                Welcome, &nbsp; {nameLoggedin}
+              </p>
+              {isDropdown && (
+                <ul className={styles.dropdown}>
+                  <li>
+                    <Link to="">
+                      <span>
+                        <FontAwesomeIcon icon={faUser} />
+                      </span>
+                      Profile
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/login">
+                      <span>
+                        <FontAwesomeIcon icon={faRightFromBracket} />
+                      </span>
+                      Log out
+                    </Link>
+                  </li>
+                </ul>
+              )}
+            </>
           ) : (
             <Link to="/login" className={clsx(styles.navItem, styles.link)}>
               LOGIN

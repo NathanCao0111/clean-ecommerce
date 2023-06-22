@@ -22,6 +22,7 @@
 
 .nav {
   display: flex;
+  position: relative;
   div {
     position: relative;
     left: -32px;
@@ -36,11 +37,34 @@
     padding: 4px;
     text-align: center;
   }
+  .dropdown {
+    position: absolute;
+    top: 24px;
+    z-index: 101;
+    list-style: none;
+    padding: 3rem 5rem 1rem;
+    background-color: #fff;
+    box-shadow: 0 6px 5px -1px rgba(0, 0, 0, 0.23);
+    li {
+      cursor: pointer;
+      font-size: 1.8rem;
+      margin-bottom: 2.5rem;
+      margin-left: -2rem;
+      span {
+        margin-right: 2rem;
+      }
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .navItem {
   font-size: 1.8rem;
   margin-right: 2.5rem;
+  cursor: pointer;
+  user-select: none;
 }
 
 .link {

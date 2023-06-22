@@ -24,7 +24,9 @@ export const cartSlice = createSlice({
       state.cartProducts.find((element) => element.id === action.payload).quantity += 1;
     },
     cartProductDecrement: (state, action) => {
-      state.cartProducts.find((element) => element.id === action.payload).quantity -= 1;
+      if (state.cartProducts.find((element) => element.id === action.payload).quantity > 1) {
+        state.cartProducts.find((element) => element.id === action.payload).quantity -= 1;
+      }
     },
   },
 });
