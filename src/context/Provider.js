@@ -434,7 +434,6 @@ function Provider({ children }) {
   const [sortPrice, setSortPrice] = useState('');
   const [loggedin, setLoggedin] = useState(false);
   const [nameLoggedin, setNameLoggedin] = useState('');
-  const [loggedinId, setLoggedinId] = useState('');
   const [isCart, setIsCart] = useState(false);
   const [searchInput, setSearchInput] = useState('');
 
@@ -454,7 +453,6 @@ function Provider({ children }) {
     sortPriceContext: [sortPrice, setSortPrice],
     loggedinContext: [loggedin, setLoggedin],
     nameLoggedinContext: [nameLoggedin, setNameLoggedin],
-    loggedinIdContext: [loggedinId, setLoggedinId],
     isCartContext: [isCart, setIsCart],
     searchInputContext: [searchInput, setSearchInput],
   };

@@ -24,7 +24,6 @@ function Login() {
   const loggedinData = useProducts();
   const [loggedin, setLoggedin] = loggedinData.loggedinContext;
   const [, setNameLoggedin] = loggedinData.nameLoggedinContext;
-  const [loggedinId, setLoggedinId] = loggedinData.loggedinIdContext;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -36,43 +35,36 @@ function Login() {
 
   useEffect(() => {
     if (loggedin) {
-      fetch(`https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/users/${loggedinId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ loggedin: true }),
-      });
+      const timer = setTimeout(() => {
+        navigate('/');
+      }, 1000);
+
+      return () => clearTimeout(timer);
     }
-  }, [loggedin, loggedinId]);
+  }, [loggedin]);
 
   const handleLoginSubmit = (values) => {
     const { email, password } = values;
-    console.log(values);
     fetch('https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/users')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         const validateUser = data.filter((element) => {
           if (element.email === email && element.password === password) {
-            console.log(element);
             setNameLoggedin(element.name);
-            setLoggedinId(element.id);
+            const { id } = element;
+            const token = JSON.stringify(id);
+            localStorage.setItem('token', token);
             return element;
           }
           return;
         });
-        console.log(validateUser);
         if (validateUser.length !== 0) {
           setLoggedin(true);
-          navigate('/');
         } else {
           setIncorrectNotify(true);
         }
       });
   };
-
-  console.log(incorrectNotify);
 
   return (
     <section className={styles.container}>
