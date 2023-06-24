@@ -6,7 +6,8 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import useProducts from '../../../../context/useProducts';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { resetCart } from '../../../../redux/cartReducer';
 
 function Header() {
   const productsData = useProducts();
@@ -18,10 +19,12 @@ function Header() {
   const [isDropdown, setIsDropdown] = useState(false);
 
   const cartProducts = useSelector((state) => state.cart.cartProducts);
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
     localStorage.removeItem('token');
     setLoggedin(false);
+    dispatch(resetCart());
   };
 
   useEffect(() => {

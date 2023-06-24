@@ -28,6 +28,9 @@ export const cartSlice = createSlice({
         state.cartProducts.find((element) => element.id === action.payload).quantity -= 1;
       }
     },
+    resetCart: (state) => {
+      state.cartProducts = [];
+    },
   },
 });
 
