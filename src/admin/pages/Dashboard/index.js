@@ -1,7 +1,11 @@
-import './Dashboard.module.scss';
+import styles from './Dashboard.module.scss';
 
 function Dashboard() {
-  return <h1>Dashboard</h1>;
+  return (
+    <main className={styles.wrapper}>
+      <div className={styles.container}>container</div>
+    </main>
+  );
 }
 
 export default Dashboard;
