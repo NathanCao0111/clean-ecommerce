@@ -4,6 +4,12 @@ import ProductPage from '../pages/ProductPage';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import PageNotFound from '../pages/PageNotFound';
+import Dashboard from '../admin/pages/Dashboard';
+import AdminLogin from '../admin/pages/AdminLogin';
+import AdminSignup from '../admin/pages/AdminSignup';
+import AdminList from '../admin/pages/AdminList';
+import AdminSingle from '../admin/pages/AdminSingle';
+import AdminNew from '../admin/pages/AdminNew';
 
 const publicRoutes = [
   { path: '/', component: Home },
@@ -15,7 +21,15 @@ const publicRoutes = [
 ];
 
 const privateRoutes = [
-  // must login
+  { path: '/admin', component: Dashboard },
+  { path: '/admin/login', component: AdminLogin },
+  { path: '/admin/signup', component: AdminSignup },
+  { path: '/admin/products', component: AdminList },
+  { path: '/admin/product/:productId', component: AdminSingle },
+  { path: '/admin/product/new', component: AdminNew },
+  { path: '/admin/users', component: AdminList },
+  { path: '/admin/user/:userId', component: AdminSingle },
+  { path: '/admin/user/new', component: AdminNew },
 ];
 
 export { publicRoutes, privateRoutes };

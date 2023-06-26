@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import { publicRoutes } from './routes';
+import { privateRoutes, publicRoutes } from './routes';
 import { DefaultLayout } from './components/Layout';
 
 function App() {
@@ -21,6 +21,10 @@ function App() {
                 }
               />
             );
+          })}
+          {privateRoutes.map((element, index) => {
+            const Page = element.component;
+            return <Route key={index} path={element.path} element={<Page />} />;
           })}
         </Routes>
       </div>
