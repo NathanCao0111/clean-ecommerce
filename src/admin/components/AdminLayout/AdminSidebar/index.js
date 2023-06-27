@@ -2,15 +2,16 @@ import styles from './AdminSidebar.module.scss';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTableColumns, faCartShopping, faUser, faGear, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import images from '../../../../assets/images';
 
 function AdminSidebar(props) {
   return (
     <aside className={clsx(styles.sidebar, props.className)}>
       <div className={styles.top}>
-        <div className={styles.logo}>
-          <img src="" alt="" />
-        </div>
-        <p>Username</p>
+        <Link to="/admin">
+          <img src={images.cleanAdmin} alt="Clean logo"></img>
+        </Link>
       </div>
       <div className={styles.center}>
         <ul>

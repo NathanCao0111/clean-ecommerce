@@ -1,23 +1,15 @@
 .sidebar {
-  border-right: 2px solid rgba(0, 0, 0, 0.2);
   min-height: 100vh;
   background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+  position: fixed;
+  z-index: 99;
   .top {
-    height: 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    p {
-      font-size: 2.5rem;
-      font-weight: 600;
-      color: #333;
-    }
+    height: 12rem;
+    padding-left: 2rem;
   }
   .center {
+    padding-top: 10rem;
     ul {
       width: 100%;
       li {
@@ -40,7 +32,7 @@
         }
         p {
           position: absolute;
-          left: 6rem;
+          left: 5.5rem;
         }
 
         &:hover {
@@ -51,6 +43,7 @@
     }
   }
   .bottom {
+    padding-top: 35rem;
     .colorContainer {
       display: flex;
       align-items: center;
@@ -90,7 +83,7 @@
       }
       p {
         position: absolute;
-        left: 6rem;
+        left: 5.5rem;
       }
       &:hover {
         background-color: #000;

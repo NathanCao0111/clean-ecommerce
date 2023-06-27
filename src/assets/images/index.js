@@ -6,6 +6,7 @@ const images = {
   featuredThreeLow: require('./featured/featuredThreeLow.jpg'),
   bannerOne: require('./banner/bannerOne.jpg'),
   bannerTwo: require('./banner/bannerTwo.jpg'),
+  cleanAdmin: require('./clean-admin.png'),
 };
 
 export default images;
