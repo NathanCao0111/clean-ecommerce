@@ -2,6 +2,7 @@ import styles from './Dashboard.module.scss';
 import Widget from '../../components/Widget';
 import Progress from '../../components/Progress';
 import Chart from '../../components/Chart';
+import BasicTable from '../../components/BasicTable';
 
 function Dashboard() {
   return (
@@ -16,6 +17,10 @@ function Dashboard() {
         <div className={styles.charts}>
           <Progress />
           <Chart />
+        </div>
+        <div className={styles.listContainer}>
+          <h3>Top products</h3>
+          <BasicTable />
         </div>
       </div>
     </main>
