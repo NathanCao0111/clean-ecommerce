@@ -1,6 +1,6 @@
 import styles from './Progress.module.scss';
 import clsx from 'clsx';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 function Progress() {
   const data = [

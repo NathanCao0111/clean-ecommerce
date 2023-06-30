@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 function Chart() {
   return (
     <section className={styles.chart}>
-      <Link to="/admin/products">
+      <Link to="">
         <div className={styles.top}>
           <h3>Sales by category</h3>
         </div>

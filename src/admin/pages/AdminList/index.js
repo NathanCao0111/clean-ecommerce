@@ -1,7 +1,14 @@
-import './AdminList.module.scss';
+import styles from './AdminList.module.scss';
+import DataTable from '../../components/DataTable';
 
 function AdminList() {
-  return <h1>AdminList</h1>;
+  return (
+    <div className={styles.list}>
+      <div className={styles.listContainer}>
+        <DataTable />
+      </div>
+    </div>
+  );
 }
 
 export default AdminList;
