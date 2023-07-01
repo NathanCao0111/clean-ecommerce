@@ -15,5 +15,23 @@
         border-radius: 50%;
       }
     }
+    .cellStatus {
+      padding: 1rem;
+      border-radius: 1rem;
+      width: 10rem;
+      text-align: center;
+    }
+    .cellStatus.active {
+      background-color: rgba(25, 135, 84, 0.2);
+      color: rgb(25, 135, 84);
+    }
+    .cellStatus.inactive {
+      background-color: rgba(255, 193, 7, 0.2);
+      color: rgb(255, 193, 7);
+    }
+    .cellStatus.pending {
+      background-color: rgba(182, 0, 44, 0.2);
+      color: rgb(182, 0, 44);
+    }
   }
 }

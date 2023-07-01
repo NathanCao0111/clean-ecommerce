@@ -1,6 +1,7 @@
 import styles from './DataTable.module.scss';
 import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
+import clsx from 'clsx';
 
 function DataTable() {
   const [usersData, setUsersData] = useState([]);
@@ -10,7 +11,7 @@ function DataTable() {
     {
       field: 'users',
       headerName: 'Users',
-      width: 250,
+      width: 230,
       renderCell: (params) => {
         return (
           <div className={styles.cellImg}>
@@ -20,14 +21,25 @@ function DataTable() {
         );
       },
     },
-    { field: 'email', headerName: 'Email', width: 250 },
-    { field: 'age', headerName: 'Age', width: 100 },
+    { field: 'email', headerName: 'Email', width: 230 },
+    { field: 'age', headerName: 'Age', type: 'number', width: 90 },
     {
       field: 'status',
       headerName: 'Status',
-      width: 200,
+      width: 100,
       renderCell: (params) => {
-        return <div className={styles.cellStatus}>{params.row.status}</div>;
+        return (
+          <div
+            className={clsx(
+              styles.cellStatus,
+              params.row.status === 'active' ? styles.active : '',
+              params.row.status === 'inactive' ? styles.inactive : '',
+              params.row.status === 'pending' ? styles.pending : '',
+            )}
+          >
+            {params.row.status}
+          </div>
+        );
       },
     },
   ];
@@ -43,7 +55,7 @@ function DataTable() {
   console.log(usersData);
 
   return (
-    <div className={styles.dataTable} style={{ height: 400, width: '100%' }}>
+    <div className={styles.dataTable} style={{ height: 500, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}
@@ -54,6 +66,7 @@ function DataTable() {
         }}
         pageSizeOptions={[5, 10]}
         checkboxSelection
+        rowHeight={70}
         className={styles.dataGrid}
       />
     </div>
