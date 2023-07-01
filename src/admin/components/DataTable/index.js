@@ -6,6 +6,22 @@ import clsx from 'clsx';
 function DataTable() {
   const [usersData, setUsersData] = useState([]);
 
+  const actionColumn = [
+    {
+      field: 'actions',
+      headerName: 'Actions',
+      width: 200,
+      renderCell: () => {
+        return (
+          <div className={styles.cellActions}>
+            <button className={styles.view}>View</button>
+            <button className={styles.delete}>Delete</button>
+          </div>
+        );
+      },
+    },
+  ];
+
   const columns = [
     { field: 'id', headerName: 'ID', width: 70 },
     {
@@ -22,11 +38,11 @@ function DataTable() {
       },
     },
     { field: 'email', headerName: 'Email', width: 230 },
-    { field: 'age', headerName: 'Age', type: 'number', width: 90 },
+    { field: 'age', headerName: 'Age', type: 'number', headerAlign: 'start', cellClassName: styles.cellAge, width: 90 },
     {
       field: 'status',
       headerName: 'Status',
-      width: 100,
+      width: 130,
       renderCell: (params) => {
         return (
           <div
@@ -52,13 +68,11 @@ function DataTable() {
       .then((data) => setUsersData(data));
   }, []);
 
-  console.log(usersData);
-
   return (
     <div className={styles.dataTable} style={{ height: 500, width: '100%' }}>
       <DataGrid
         rows={rows}
-        columns={columns}
+        columns={columns.concat(actionColumn)}
         initialState={{
           pagination: {
             paginationModel: { page: 0, pageSize: 5 },
