@@ -69,7 +69,7 @@ function DataTable() {
   }, []);
 
   return (
-    <div className={styles.dataTable} style={{ height: 500, width: '100%' }}>
+    <div className={styles.dataTable} style={{ height: 600, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns.concat(actionColumn)}
@@ -78,9 +78,10 @@ function DataTable() {
             paginationModel: { page: 0, pageSize: 5 },
           },
         }}
-        pageSizeOptions={[5, 10]}
+        autoPageSize
+        // pageSizeOptions={[5, 10]}
         checkboxSelection
-        rowHeight={70}
+        rowHeight={78}
         className={styles.dataGrid}
       />
     </div>

@@ -426,6 +426,119 @@ function Provider({ children }) {
     },
   ]);
 
+  const [users, setUsers] = useState([
+    {
+      name: 'John Smith',
+      email: 'johnsmith@gmail.com',
+      password: '12345678',
+      img: 'https://images.unsplash.com/photo-1595152452543-e5fc28ebc2b8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80',
+      status: 'active',
+      age: 18,
+      phone: '+0123 456 789',
+      country: 'Netherlands',
+      id: '1',
+    },
+    {
+      name: 'Kevin Nguyen',
+      email: 'kevinnguyen@gmail.com',
+      password: '23456789',
+      img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80',
+      status: 'inactive',
+      age: 20,
+      phone: '+0234 567 890',
+      country: 'Malawi',
+      id: '2',
+    },
+    {
+      name: 'Tina Nguyen',
+      email: 'tinanguyen@gmail.com',
+      password: '34567890',
+      img: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=764&q=80',
+      status: 'pending',
+      age: 22,
+      phone: '+0345 678 901',
+      country: 'Armenia',
+      id: '3',
+    },
+    {
+      name: 'Karen Nguyen',
+      email: 'karennguyen@gmail.com',
+      password: 'qwertyui',
+      img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=761&q=80',
+      status: 'active',
+      age: 24,
+      phone: '+0456 789 012',
+      country: 'China',
+      id: '4',
+    },
+    {
+      name: 'Arthur Nackos',
+      email: 'arthurnackos@gmail.com',
+      password: 'qwertyui',
+      img: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+      status: 'active',
+      age: 26,
+      phone: '+0567 890 123',
+      country: 'Honduras',
+      id: '5',
+    },
+    {
+      name: 'Mary Sergienko',
+      email: 'marysergienko@gmail.com',
+      password: 'qwertyui',
+      img: 'https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=465&q=80',
+      status: 'inactive',
+      age: 28,
+      phone: '+0678 901 234',
+      country: 'Moldova',
+      id: '6',
+    },
+    {
+      name: 'Noah Adam',
+      email: 'noahadam@gmail.com',
+      password: 'qwertyui',
+      img: 'https://images.unsplash.com/photo-1624395213043-fa2e123b2656?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+      status: 'pending',
+      age: 30,
+      phone: '+0789 012 345',
+      country: 'Angola',
+      id: '7',
+    },
+    {
+      name: 'Olivia George',
+      email: 'oliviageorge@gmail.com',
+      password: 'qwertyui',
+      img: 'https://images.unsplash.com/photo-1506863530036-1efeddceb993?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=744&q=80',
+      status: 'active',
+      age: 32,
+      phone: '+0890 123 456',
+      country: 'Croatia',
+      id: '8',
+    },
+    {
+      name: 'Ava Amelia',
+      email: 'avaamelia@gmail.com',
+      password: 'qwertyui',
+      img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80',
+      status: 'active',
+      age: 34,
+      phone: '+0901 234 567',
+      country: 'Canada',
+      id: '9',
+    },
+    {
+      name: 'Isla Charlie',
+      email: 'islacharlie@gmail.com',
+      password: 'qwertyui',
+      img: 'https://images.unsplash.com/photo-1546961329-78bef0414d7c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+      status: 'pending',
+      age: 36,
+      phone: '+0012 345 678',
+      country: 'Vietnam',
+      id: '10',
+    },
+  ]);
+
   const [categoryProducts, setCategoryProducts] = useState(false);
   const [updatedProducts, setUpdatedProducts] = useState(products);
   const [checkboxCategories, setCheckboxCategories] = useState([]);
@@ -443,8 +556,15 @@ function Provider({ children }) {
       .then((data) => setProducts(data));
   }, []);
 
+  useEffect(() => {
+    fetch('https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/users')
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
+  }, []);
+
   const value = {
     productsContext: [products, setProducts],
+    usersContext: [users, setUsers],
     categoryProductsContext: [categoryProducts, setCategoryProducts],
     checkboxCategoriesContext: [checkboxCategories, setCheckboxCategories],
     fromRangeContext: [fromRange, setFromRange],

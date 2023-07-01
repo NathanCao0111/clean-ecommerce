@@ -25,10 +25,10 @@ const privateRoutes = [
   { path: '/admin/login', component: AdminLogin },
   { path: '/admin/signup', component: AdminSignup },
   { path: '/admin/products', component: AdminList },
-  { path: '/admin/product/:productId', component: AdminSingle },
+  { path: '/admin/product/:adminProductId', component: AdminSingle },
   { path: '/admin/product/new', component: AdminNew },
   { path: '/admin/users', component: AdminList },
-  { path: '/admin/user/:userId', component: AdminSingle },
+  { path: '/admin/user/:adminUserId', component: AdminSingle },
   { path: '/admin/user/new', component: AdminNew },
 ];
 
