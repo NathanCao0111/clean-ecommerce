@@ -4,9 +4,16 @@ import BasicTable from '../../components/BasicTable';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import useProducts from '../../../context/useProducts';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import clsx from 'clsx';
 
-function AdminSingle() {
+function AdminSingle({ inputs, title }) {
   const params = useParams();
   const userId = params.adminUserId;
   const productId = params.adminProductId;
@@ -17,6 +24,15 @@ function AdminSingle() {
   const [product, setProduct] = useState(products[productId - 1]);
   const [userPage, setUserPage] = useState(false);
   const [productPage, setProductPage] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   useEffect(() => {
     if (userId) {
@@ -44,10 +60,38 @@ function AdminSingle() {
 
   return (
     <section className={styles.single}>
+      <Dialog open={open} onClose={handleClose} className={styles.dialog}>
+        <DialogTitle className={styles.dialogTitle}>{title}</DialogTitle>
+        <DialogContent className={styles.dialogContent}>
+          <DialogContentText className={styles.dialogContentText}>
+            To {title} data, please enter your inputs here.
+          </DialogContentText>
+          {inputs.map((element) => {
+            return (
+              <TextField
+                key={element.id}
+                autoFocus
+                margin="normal"
+                id={element.label}
+                label={element.label}
+                type={element.type}
+                fullWidth
+                variant="standard"
+              />
+            );
+          })}
+        </DialogContent>
+        <DialogActions className={styles.dialogActions}>
+          <Button onClick={handleClose}>Cancel</Button>
+          <Button onClick={handleClose} className={styles.update}>
+            Update
+          </Button>
+        </DialogActions>
+      </Dialog>
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.left}>
-            <button>Edit</button>
+            <button onClick={handleClickOpen}>Edit</button>
             <h3>Information</h3>
             <div className={styles.item}>
               <img

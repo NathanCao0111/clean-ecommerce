@@ -1,0 +1,6 @@
+.MuiInputBase-input,
+.MuiFormLabel-root {
+  font-size: 1.8rem !important;
+  font-family: 'Blinker', sans-serif !important;
+  color: #000 !important;
+}

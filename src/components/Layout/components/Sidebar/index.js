@@ -13,7 +13,7 @@ function Sidebar() {
   const [toRange, setToRange] = productsData.toRangeContext;
   const [, setUpdatedProducts] = productsData.updatedProductsContext;
   const [sortPrice, setSortPrice] = productsData.sortPriceContext;
-  const [searchInput] = productsData.searchInputContext;
+  const [searchInput, setSearchInput] = productsData.searchInputContext;
 
   const categories = [
     { id: 1, type: 'Furnitures' },
@@ -43,6 +43,7 @@ function Sidebar() {
     setFromRange('');
     setToRange('');
     setSortPrice('');
+    setSearchInput('');
   };
 
   useEffect(() => {

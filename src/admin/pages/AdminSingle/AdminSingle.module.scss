@@ -81,3 +81,30 @@
     }
   }
 }
+
+.dialog {
+  .dialogTitle {
+    font-size: 2.2rem;
+    font-family: 'Blinker', sans-serif;
+    font-weight: 600;
+    color: #000;
+    text-transform: capitalize;
+  }
+  .dialogContent {
+    .dialogContentText {
+      font-size: 2rem;
+      font-family: 'Blinker', sans-serif;
+      color: #000;
+    }
+  }
+  .dialogActions {
+    button {
+      font-size: 1.5rem;
+      color: #000;
+      font-family: 'Blinker', sans-serif;
+    }
+    .update {
+      color: #b6002c;
+    }
+  }
+}

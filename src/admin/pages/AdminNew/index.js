@@ -1,17 +1,25 @@
 import styles from './AdminNew.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileImage } from '@fortawesome/free-regular-svg-icons';
+import { useState } from 'react';
 
-function AdminNew() {
+function AdminNew({ inputs, title }) {
+  const [file, setFile] = useState('');
+
   return (
     <section className={styles.new}>
       <div className={styles.container}>
         <div className={styles.top}>
-          <h3>Add New User</h3>
+          <h3>{title}</h3>
         </div>
         <div className={styles.bottom}>
           <div className={styles.left}>
-            <img src="https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg" alt="empty" />
+            <img
+              src={
+                file ? URL.createObjectURL(file) : 'https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg'
+              }
+              alt="avatar"
+            />
           </div>
           <div className={styles.right}>
             <form onSubmit={(e) => e.preventDefault()}>
@@ -20,35 +28,19 @@ function AdminNew() {
                   <div className={styles.imgFile}>Image</div>
                   <div className={styles.icon}>
                     <FontAwesomeIcon icon={faFileImage} />
-                    <span>No file chosen</span>
+                    {file ? <span>Choose another file</span> : <span>No file chosen</span>}
                   </div>
                 </label>
-                <input type="file" id="file" style={{ display: 'none' }} />
+                <input type="file" id="file" style={{ display: 'none' }} onChange={(e) => setFile(e.target.files[0])} />
               </div>
-              <div className={styles.input}>
-                <label>Name</label>
-                <input type="text" placeholder="John Smith" />
-              </div>
-              <div className={styles.input}>
-                <label>Email</label>
-                <input type="email" placeholder="johnsmith@gmail.com" />
-              </div>
-              <div className={styles.input}>
-                <label>Password</label>
-                <input type="password" />
-              </div>
-              <div className={styles.input}>
-                <label>Age</label>
-                <input type="number" placeholder={18} />
-              </div>
-              <div className={styles.input}>
-                <label>Phone</label>
-                <input type="text" placeholder="+0123 456 789" />
-              </div>
-              <div className={styles.input}>
-                <label>Country</label>
-                <input type="text" placeholder="Vietnam" />
-              </div>
+              {inputs.map((element) => {
+                return (
+                  <div key={element.id} className={styles.input}>
+                    <label>{element.label}</label>
+                    <input type={element.type} placeholder={element.placeholder} />
+                  </div>
+                );
+              })}
               <button type="submit">Submit</button>
             </form>
           </div>

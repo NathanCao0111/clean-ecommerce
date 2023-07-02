@@ -16,36 +16,44 @@ function AdminSidebar(props) {
       <div className={styles.center}>
         <ul>
           <li>
-            <span>
-              <FontAwesomeIcon icon={faTableColumns} />
-            </span>
-            <p>Dashboard</p>
+            <Link to="/admin">
+              <span>
+                <FontAwesomeIcon icon={faTableColumns} />
+              </span>
+              <p>Dashboard</p>
+            </Link>
           </li>
           <li>
-            <span>
-              <FontAwesomeIcon icon={faCartShopping} />
-            </span>
-            <p>Products</p>
+            <Link to="/admin/products">
+              <span>
+                <FontAwesomeIcon icon={faCartShopping} />
+              </span>
+              <p>Products</p>
+            </Link>
           </li>
           <li>
-            <span>
-              <FontAwesomeIcon icon={faUser} />
-            </span>
-            <p>Users</p>
+            <Link to="/admin/users">
+              <span>
+                <FontAwesomeIcon icon={faUser} />
+              </span>
+              <p>Users</p>
+            </Link>
           </li>
           <li>
-            <span>
-              <FontAwesomeIcon icon={faGear} />
-            </span>
-            <p>Settings</p>
+            <Link to="">
+              <span>
+                <FontAwesomeIcon icon={faGear} />
+              </span>
+              <p>Settings</p>
+            </Link>
           </li>
         </ul>
       </div>
       <div className={styles.bottom}>
-        <div className={styles.colorContainer}>
+        {/* <div className={styles.colorContainer}>
           <div className={styles.color}></div>
           <div className={styles.color}></div>
-        </div>
+        </div> */}
         <div className={styles.logout}>
           <span>
             <FontAwesomeIcon icon={faRightFromBracket} />

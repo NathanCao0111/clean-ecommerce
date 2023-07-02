@@ -1,6 +1,7 @@
 import styles from './ProductsTable.module.scss';
 import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 function ProductsTable() {
   const [productsData, setProductsData] = useState([]);
@@ -10,11 +11,27 @@ function ProductsTable() {
       field: 'actions',
       headerName: 'Actions',
       width: 200,
-      renderCell: () => {
+      renderCell: (params) => {
+        const handleDeleteProduct = async (id) => {
+          const newProductsData = productsData.filter((element) => element.id !== id);
+          setProductsData(newProductsData);
+
+          await fetch(`https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/${id}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+        };
+
         return (
           <div className={styles.cellActions}>
-            <button className={styles.view}>View</button>
-            <button className={styles.delete}>Delete</button>
+            <Link to={`/admin/product/${params.id}`}>
+              <button className={styles.view}>Update</button>
+            </Link>
+            <button className={styles.delete} onClick={() => handleDeleteProduct(params.id)}>
+              Delete
+            </button>
           </div>
         );
       },

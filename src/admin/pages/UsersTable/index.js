@@ -1,6 +1,7 @@
 import styles from './UsersTable.module.scss';
 import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 
 function UsersTable() {
@@ -11,11 +12,27 @@ function UsersTable() {
       field: 'actions',
       headerName: 'Actions',
       width: 200,
-      renderCell: () => {
+      renderCell: (params) => {
+        const handleDeleteUser = async (id) => {
+          const newUsersData = usersData.filter((element) => element.id !== id);
+          setUsersData(newUsersData);
+
+          await fetch(`https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/users/${id}`, {
+            method: 'DELETE',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          });
+        };
+
         return (
           <div className={styles.cellActions}>
-            <button className={styles.view}>View</button>
-            <button className={styles.delete}>Delete</button>
+            <Link to={`/admin/user/${params.id}`}>
+              <button className={styles.view}>Update</button>
+            </Link>
+            <button className={styles.delete} onClick={() => handleDeleteUser(params.id)}>
+              Delete
+            </button>
           </div>
         );
       },
