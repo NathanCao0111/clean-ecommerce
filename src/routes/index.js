@@ -7,7 +7,8 @@ import PageNotFound from '../pages/PageNotFound';
 import Dashboard from '../admin/pages/Dashboard';
 import AdminLogin from '../admin/pages/AdminLogin';
 import AdminSignup from '../admin/pages/AdminSignup';
-import AdminList from '../admin/pages/AdminList';
+import UsersTable from '../admin/pages/UsersTable';
+import ProductsTable from '../admin/pages/ProductsTable';
 import AdminSingle from '../admin/pages/AdminSingle';
 import AdminNew from '../admin/pages/AdminNew';
 
@@ -21,15 +22,15 @@ const publicRoutes = [
 ];
 
 const privateRoutes = [
-  { path: '/admin', component: Dashboard },
-  { path: '/admin/login', component: AdminLogin },
-  { path: '/admin/signup', component: AdminSignup },
-  { path: '/admin/products', component: AdminList },
-  { path: '/admin/product/:adminProductId', component: AdminSingle },
-  { path: '/admin/product/new', component: AdminNew },
-  { path: '/admin/users', component: AdminList },
-  { path: '/admin/user/:adminUserId', component: AdminSingle },
-  { path: '/admin/user/new', component: AdminNew },
+  { path: '/admin', component: <Dashboard /> },
+  { path: '/admin/login', component: <AdminLogin /> },
+  { path: '/admin/signup', component: <AdminSignup /> },
+  { path: '/admin/products', component: <ProductsTable /> },
+  { path: '/admin/product/:adminProductId', component: <AdminSingle /> },
+  { path: '/admin/product/new', component: <AdminNew /> },
+  { path: '/admin/users', component: <UsersTable /> },
+  { path: '/admin/user/:adminUserId', component: <AdminSingle /> },
+  { path: '/admin/user/new', component: <AdminNew /> },
 ];
 
 export { publicRoutes, privateRoutes };

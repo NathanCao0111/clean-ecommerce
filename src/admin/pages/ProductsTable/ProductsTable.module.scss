@@ -1,0 +1,45 @@
+.dataTable {
+  padding: 4rem 2rem;
+  .dataGrid {
+    font-size: 1.7rem;
+    font-family: 'Blinker', sans-serif;
+    color: #000;
+    .cellImg {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      img {
+        width: 4rem;
+        height: 4rem;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+    .cellPrice {
+      display: flex;
+      justify-content: flex-start;
+    }
+    .cellActions {
+      display: flex;
+      gap: 2rem;
+      .view,
+      .delete {
+        background-color: #fff;
+        outline: none;
+        padding: 1.1rem;
+        border-radius: 1rem;
+        font-size: 1.5rem;
+        font-family: 'Blinker', sans-serif;
+        cursor: pointer;
+      }
+      .view {
+        border: 2px solid #3e98c7;
+        color: #3e98c7;
+      }
+      .delete {
+        border: 2px solid #b6002c;
+        color: #b6002c;
+      }
+    }
+  }
+}

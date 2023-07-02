@@ -6,7 +6,8 @@
       padding: 4rem 0;
       gap: 2rem;
       .left {
-        height: 22rem;
+        height: 26rem;
+        max-width: 40rem;
         flex: 1;
         box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
         border-radius: 10px;
@@ -42,6 +43,7 @@
             object-fit: cover;
           }
           .details {
+            width: 20rem;
             p {
               font-size: 2rem;
               margin-bottom: 1.5rem;
@@ -51,6 +53,12 @@
               display: flex;
               gap: 1rem;
               margin-bottom: 1rem;
+              display: flex;
+              flex-wrap: wrap;
+              margin-bottom: 2rem;
+              .detailValue.status {
+                text-transform: capitalize;
+              }
             }
           }
         }

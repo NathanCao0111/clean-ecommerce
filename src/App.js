@@ -25,18 +25,7 @@ function App() {
           })}
 
           {privateRoutes.map((element, index) => {
-            const Page = element.component;
-            return (
-              <Route
-                key={index}
-                path={element.path}
-                element={
-                  <AdminLayout>
-                    <Page />
-                  </AdminLayout>
-                }
-              />
-            );
+            return <Route key={index} path={element.path} element={<AdminLayout>{element.component}</AdminLayout>} />;
           })}
         </Routes>
       </div>
