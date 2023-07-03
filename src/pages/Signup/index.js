@@ -55,8 +55,6 @@ function Signup() {
     navigate('/login');
   };
 
-  console.log(userMatchWarning);
-
   return (
     <section className={styles.container}>
       <div className={clsx(styles.notify, userMatchWarning === true ? styles.slideIn : '')}>
