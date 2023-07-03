@@ -4,12 +4,13 @@ import ProductPage from '../pages/ProductPage';
 import Login from '../pages/Login';
 import Signup from '../pages/Signup';
 import PageNotFound from '../pages/PageNotFound';
+
 import Dashboard from '../admin/pages/Dashboard';
 import AdminLogin from '../admin/pages/AdminLogin';
-import AdminSignup from '../admin/pages/AdminSignup';
 import UsersTable from '../admin/pages/UsersTable';
 import ProductsTable from '../admin/pages/ProductsTable';
-import AdminSingle from '../admin/pages/AdminSingle';
+import UserSinglePage from '../admin/pages/UserSinglePage';
+import ProductSinglePage from '../admin/pages/ProductSinglePage';
 import AdminNew from '../admin/pages/AdminNew';
 import { userInputs, productInputs } from '../admin';
 
@@ -25,12 +26,17 @@ const publicRoutes = [
 const privateRoutes = [
   { path: '/admin', component: <Dashboard /> },
   { path: '/admin/login', component: <AdminLogin /> },
-  { path: '/admin/signup', component: <AdminSignup /> },
   { path: '/admin/products', component: <ProductsTable /> },
-  { path: '/admin/product/:adminProductId', component: <AdminSingle inputs={productInputs} title="update product" /> },
+  {
+    path: '/admin/product/:adminProductId',
+    component: <ProductSinglePage inputs={productInputs} title="update product" />,
+  },
   { path: '/admin/product/new', component: <AdminNew inputs={productInputs} title="Add New Product" /> },
   { path: '/admin/users', component: <UsersTable /> },
-  { path: '/admin/user/:adminUserId', component: <AdminSingle inputs={userInputs} title="update user" /> },
+  {
+    path: '/admin/user/:adminUserId',
+    component: <UserSinglePage inputs={userInputs} title="update user" />,
+  },
   { path: '/admin/user/new', component: <AdminNew inputs={userInputs} title="Add New User" /> },
 ];
 

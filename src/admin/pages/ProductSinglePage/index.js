@@ -1,4 +1,4 @@
-import styles from './AdminSingle.module.scss';
+import styles from './ProductSinglePage.module.scss';
 import Progress from '../../components/Progress';
 import BasicTable from '../../components/BasicTable';
 import { useState, useEffect } from 'react';
@@ -13,7 +13,7 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import clsx from 'clsx';
 
-function AdminSingle({ inputs, title }) {
+function ProductSinglePage({ inputs, title }) {
   const params = useParams();
   const userId = params.adminUserId;
   const productId = params.adminProductId;
@@ -25,6 +25,7 @@ function AdminSingle({ inputs, title }) {
   const [userPage, setUserPage] = useState(false);
   const [productPage, setProductPage] = useState(false);
   const [open, setOpen] = useState(false);
+  const [textField, setTextField] = useState('');
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -32,6 +33,10 @@ function AdminSingle({ inputs, title }) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleUpdateData = () => {
+    return;
   };
 
   useEffect(() => {
@@ -77,13 +82,15 @@ function AdminSingle({ inputs, title }) {
                 type={element.type}
                 fullWidth
                 variant="standard"
+                value={textField}
+                onChange={(e) => setTextField(e.target.value)}
               />
             );
           })}
         </DialogContent>
         <DialogActions className={styles.dialogActions}>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose} className={styles.update}>
+          <Button onClick={handleUpdateData} className={styles.update}>
             Update
           </Button>
         </DialogActions>
@@ -91,7 +98,7 @@ function AdminSingle({ inputs, title }) {
       <div className={styles.container}>
         <div className={styles.top}>
           <div className={styles.left}>
-            <button onClick={handleClickOpen}>Edit</button>
+            <button onClick={handleClickOpen}>Update</button>
             <h3>Information</h3>
             <div className={styles.item}>
               <img
@@ -134,4 +141,4 @@ function AdminSingle({ inputs, title }) {
   );
 }
 
-export default AdminSingle;
+export default ProductSinglePage;
