@@ -28,8 +28,6 @@ function UserSinglePage({ inputs, title }) {
     phone: user.phone,
     country: user.country,
   });
-  console.log(userTextField);
-  console.log(user);
 
   const handleClickOpen = () => {
     setOpen(true);

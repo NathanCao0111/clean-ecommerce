@@ -3,6 +3,8 @@ import { DataGrid } from '@mui/x-data-grid';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 function UsersTable() {
   const [usersData, setUsersData] = useState([]);
@@ -86,22 +88,32 @@ function UsersTable() {
   }, []);
 
   return (
-    <div className={styles.dataTable} style={{ height: 600, width: '100%' }}>
-      <DataGrid
-        rows={rows}
-        columns={columns.concat(actionColumn)}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
-          },
-        }}
-        autoPageSize
-        // pageSizeOptions={[5, 10]}
-        checkboxSelection
-        rowHeight={78}
-        className={styles.dataGrid}
-      />
-    </div>
+    <section className={styles.wrapper}>
+      <Link to="/admin/user/new">
+        <button className={styles.newBtn}>
+          <span>
+            <FontAwesomeIcon icon={faPlus} />
+          </span>
+          Create New User
+        </button>
+      </Link>
+      <div className={styles.dataTable} style={{ height: 600, width: '100%' }}>
+        <DataGrid
+          rows={rows}
+          columns={columns.concat(actionColumn)}
+          initialState={{
+            pagination: {
+              paginationModel: { page: 0, pageSize: 5 },
+            },
+          }}
+          autoPageSize
+          // pageSizeOptions={[5, 10]}
+          checkboxSelection
+          rowHeight={78}
+          className={styles.dataGrid}
+        />
+      </div>
+    </section>
   );
 }
 

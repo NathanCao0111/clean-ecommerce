@@ -5,8 +5,7 @@ function Provider({ children }) {
   const [products, setProducts] = useState([
     {
       title: 'Little Armchair Sheepskin',
-      description:
-        'Tradition Little Petra VB1 Armchair Sheepskin Moonlight/ Walnut/ Brass Limited Edition | We give you a special discount when you put this product in the basket.',
+      description: 'Tradition Little Petra VB1 Armchair Sheepskin Moonlight/ Walnut/ Brass Limited Edition.',
       price: 986,
       image: {
         bigImg: 'https://minimalist-e-commerce.vercel.app/static/media/1.122c04e77ef5da9e8406.jpg',
@@ -550,25 +549,6 @@ function Provider({ children }) {
   const [isCart, setIsCart] = useState(false);
   const [searchInput, setSearchInput] = useState('');
 
-  // const [userInputsValue, setUserInputsValue] = useState({
-  //   name: '',
-  //   email: '',
-  //   password: '',
-  //   age: '',
-  //   phone: '',
-  //   country: '',
-  // });
-
-  // const [productInputsValue, setProductInputsValue] = useState({
-  //   title: '',
-  //   description: '',
-  //   price: '',
-  //   texture: '',
-  //   weight: '',
-  //   size: '',
-  //   category: '',
-  // });
-
   useEffect(() => {
     fetch('https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/')
       .then((response) => response.json())
@@ -584,8 +564,6 @@ function Provider({ children }) {
   const value = {
     productsContext: [products, setProducts],
     usersContext: [users, setUsers],
-    // productInputsValueContext: [productInputsValue, setProductInputsValue],
-    // userInputsValueContext: [userInputsValue, setUserInputsValue],
     categoryProductsContext: [categoryProducts, setCategoryProducts],
     checkboxCategoriesContext: [checkboxCategories, setCheckboxCategories],
     fromRangeContext: [fromRange, setFromRange],

@@ -1,44 +1,71 @@
-.dataTable {
-  padding: 4rem 2rem;
-  .dataGrid {
-    font-size: 1.7rem;
-    font-family: 'Blinker', sans-serif;
+.wrapper {
+  padding: 0 19px;
+  .newBtn {
+    background-color: #fff;
     color: #000;
-    .cellImg {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      img {
-        width: 4rem;
-        height: 4rem;
-        object-fit: cover;
-        border-radius: 50%;
-      }
+    height: 6rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+    font-weight: 400;
+    font-family: 'Blinker', sans-serif;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    transition: {
+      property: all;
+      duration: 0.15s;
     }
-    .cellPrice {
-      display: flex;
-      justify-content: flex-start;
+
+    &:hover {
+      background-color: #000;
+      color: #fff;
     }
-    .cellActions {
-      display: flex;
-      gap: 2rem;
-      .view,
-      .delete {
-        background-color: #fff;
-        outline: none;
-        padding: 1.1rem;
-        border-radius: 1rem;
-        font-size: 1.5rem;
-        font-family: 'Blinker', sans-serif;
-        cursor: pointer;
+  }
+  .dataTable {
+    padding: 4rem 0;
+    .dataGrid {
+      font-size: 1.7rem;
+      font-family: 'Blinker', sans-serif;
+      color: #000;
+      .cellImg {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        img {
+          width: 4rem;
+          height: 4rem;
+          object-fit: cover;
+          border-radius: 50%;
+        }
       }
-      .view {
-        border: 2px solid #3e98c7;
-        color: #3e98c7;
+      .cellPrice {
+        display: flex;
+        justify-content: flex-start;
       }
-      .delete {
-        border: 2px solid #b6002c;
-        color: #b6002c;
+      .cellActions {
+        display: flex;
+        gap: 2rem;
+        .view,
+        .delete {
+          background-color: #fff;
+          outline: none;
+          padding: 1.1rem;
+          border-radius: 1rem;
+          font-size: 1.5rem;
+          font-family: 'Blinker', sans-serif;
+          cursor: pointer;
+        }
+        .view {
+          border: 2px solid #3e98c7;
+          color: #3e98c7;
+        }
+        .delete {
+          border: 2px solid #b6002c;
+          color: #b6002c;
+        }
       }
     }
   }

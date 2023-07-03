@@ -82,3 +82,23 @@
     }
   }
 }
+
+.notify {
+  background-color: #373737;
+  color: #fff;
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 999;
+  font-size: 2rem;
+  padding: 1.2rem 2.2rem;
+  transition: {
+    property: all;
+    duration: 0.2s;
+    timing-function: ease-in;
+  }
+}
+.notify.slideIn {
+  top: 0;
+}

@@ -11,7 +11,8 @@ import UsersTable from '../admin/pages/UsersTable';
 import ProductsTable from '../admin/pages/ProductsTable';
 import UserSinglePage from '../admin/pages/UserSinglePage';
 import ProductSinglePage from '../admin/pages/ProductSinglePage';
-import AdminNew from '../admin/pages/AdminNew';
+import UserNew from '../admin/pages/UserNew';
+import ProductNew from '../admin/pages/ProductNew';
 import { userInputs, productInputs } from '../admin';
 
 const publicRoutes = [
@@ -31,13 +32,13 @@ const privateRoutes = [
     path: '/admin/product/:adminProductId',
     component: <ProductSinglePage inputs={productInputs} title="update product" />,
   },
-  { path: '/admin/product/new', component: <AdminNew inputs={productInputs} title="Add New Product" /> },
+  { path: '/admin/product/new', component: <ProductNew inputs={productInputs} title="Add New Product" /> },
   { path: '/admin/users', component: <UsersTable /> },
   {
     path: '/admin/user/:adminUserId',
     component: <UserSinglePage inputs={userInputs} title="update user" />,
   },
-  { path: '/admin/user/new', component: <AdminNew inputs={userInputs} title="Add New User" /> },
+  { path: '/admin/user/new', component: <UserNew inputs={userInputs} title="Add New User" /> },
 ];
 
 export { publicRoutes, privateRoutes };

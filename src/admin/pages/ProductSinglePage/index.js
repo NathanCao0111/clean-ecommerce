@@ -15,17 +15,20 @@ import clsx from 'clsx';
 
 function ProductSinglePage({ inputs, title }) {
   const params = useParams();
-  const userId = params.adminUserId;
   const productId = params.adminProductId;
   const singlePageData = useProducts();
-  const [users] = singlePageData.usersContext;
   const [products] = singlePageData.productsContext;
-  const [user, setUser] = useState(users[userId - 1]);
   const [product, setProduct] = useState(products[productId - 1]);
-  const [userPage, setUserPage] = useState(false);
-  const [productPage, setProductPage] = useState(false);
   const [open, setOpen] = useState(false);
-  const [textField, setTextField] = useState('');
+  const [productTextField, setProductTextField] = useState({
+    title: product.title,
+    description: product.description,
+    price: product.price,
+    texture: product.specs.texture,
+    weight: product.specs.weight,
+    size: product.specs.size,
+    category: product.category,
+  });
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -36,30 +39,39 @@ function ProductSinglePage({ inputs, title }) {
   };
 
   const handleUpdateData = () => {
-    return;
+    setProduct((prev) => {
+      return {
+        ...prev,
+        title: productTextField.title,
+        description: productTextField.description,
+        price: productTextField.price,
+        specs: {
+          texture: productTextField.texture,
+          weight: productTextField.weight,
+          size: productTextField.size,
+        },
+        category: productTextField.category,
+      };
+    });
+
+    setOpen(false);
   };
 
   useEffect(() => {
-    if (userId) {
-      fetch(`https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/users/${userId}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setUserPage(true);
-          setProductPage(false);
-          setUser(data);
-        });
-    }
-  }, [userId]);
+    fetch(`https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/${productId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(product),
+    });
+  }, [product, productId]);
 
   useEffect(() => {
     if (productId) {
       fetch(`https://6448a5c1e7eb3378ca32d196.mockapi.io/api/clean-ecommerce/products/${productId}`)
         .then((response) => response.json())
-        .then((data) => {
-          setProductPage(true);
-          setUserPage(false);
-          setProduct(data);
-        });
+        .then((data) => setProduct(data));
     }
   }, [productId]);
 
@@ -71,22 +83,83 @@ function ProductSinglePage({ inputs, title }) {
           <DialogContentText className={styles.dialogContentText}>
             To {title} data, please enter your inputs here.
           </DialogContentText>
-          {inputs.map((element) => {
-            return (
-              <TextField
-                key={element.id}
-                autoFocus
-                margin="normal"
-                id={element.label}
-                label={element.label}
-                type={element.type}
-                fullWidth
-                variant="standard"
-                value={textField}
-                onChange={(e) => setTextField(e.target.value)}
-              />
-            );
-          })}
+          <TextField
+            autoFocus
+            margin="normal"
+            id="title"
+            label="title"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={productTextField.title}
+            onChange={(e) => setProductTextField((prev) => ({ ...prev, title: e.target.value }))}
+          />
+          <TextField
+            autoFocus
+            margin="normal"
+            id="description"
+            label="description"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={productTextField.description}
+            onChange={(e) => setProductTextField((prev) => ({ ...prev, description: e.target.value }))}
+          />
+          <TextField
+            autoFocus
+            margin="normal"
+            id="price"
+            label="price"
+            type="number"
+            fullWidth
+            variant="standard"
+            value={productTextField.price}
+            onChange={(e) => setProductTextField((prev) => ({ ...prev, price: Number(e.target.value) }))}
+          />
+          <TextField
+            autoFocus
+            margin="normal"
+            id="texture"
+            label="texture"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={productTextField.texture}
+            onChange={(e) => setProductTextField((prev) => ({ ...prev, texture: e.target.value }))}
+          />
+          <TextField
+            autoFocus
+            margin="normal"
+            id="weight"
+            label="weight"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={productTextField.weight}
+            onChange={(e) => setProductTextField((prev) => ({ ...prev, weight: e.target.value }))}
+          />
+          <TextField
+            autoFocus
+            margin="normal"
+            id="size"
+            label="size"
+            type="text"
+            fullWidth
+            variant="standard"
+            value={productTextField.size}
+            onChange={(e) => setProductTextField((prev) => ({ ...prev, size: e.target.value }))}
+          />
+          <TextField
+            autoFocus
+            margin="normal"
+            id="category"
+            label="category"
+            type="number"
+            fullWidth
+            variant="standard"
+            value={productTextField.category}
+            onChange={(e) => setProductTextField((prev) => ({ ...prev, category: Number(e.target.value) }))}
+          />
         </DialogContent>
         <DialogActions className={styles.dialogActions}>
           <Button onClick={handleClose}>Cancel</Button>
@@ -101,29 +174,20 @@ function ProductSinglePage({ inputs, title }) {
             <button onClick={handleClickOpen}>Update</button>
             <h3>Information</h3>
             <div className={styles.item}>
-              <img
-                src={(userPage ? user.img : '') || (productPage ? product.image.bigImg : '')}
-                alt="information ava"
-              />
+              <img src={product.image.bigImg} alt="information ava" />
               <div className={styles.details}>
-                <p>{(userPage && user.name) || (productPage && product.title)}</p>
+                <p>{product.title}</p>
                 <div className={styles.detail}>
-                  <span className={styles.detailKey}>{(userPage && 'Email:') || (productPage && 'Texture:')}</span>
-                  <span className={styles.detailValue}>
-                    {(userPage && user.email) || (productPage && product.specs.texture)}
-                  </span>
+                  <span className={styles.detailKey}>Texture:</span>
+                  <span className={styles.detailValue}>{product.specs.texture}</span>
                 </div>
                 <div className={styles.detail}>
-                  <span className={styles.detailKey}>{(userPage && 'Status:') || (productPage && 'Weight:')}</span>
-                  <span className={clsx(styles.detailValue, styles.status)}>
-                    {(userPage && user.status) || (productPage && product.specs.weight)}
-                  </span>
+                  <span className={styles.detailKey}>Weight:</span>
+                  <span className={clsx(styles.detailValue, styles.status)}>{product.specs.weight}</span>
                 </div>
                 <div className={styles.detail}>
-                  <span className={styles.detailKey}>{(userPage && 'Country:') || (productPage && 'Size')}</span>
-                  <span className={styles.detailValue}>
-                    {(userPage && user.country) || (productPage && product.specs.size)}
-                  </span>
+                  <span className={styles.detailKey}>Size:</span>
+                  <span className={styles.detailValue}>{product.specs.size}</span>
                 </div>
               </div>
             </div>
