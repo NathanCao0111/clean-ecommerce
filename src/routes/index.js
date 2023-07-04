@@ -25,20 +25,26 @@ const publicRoutes = [
 ];
 
 const privateRoutes = [
-  { path: '/admin', component: <Dashboard /> },
-  { path: '/admin/login', component: <AdminLogin /> },
-  { path: '/admin/products', component: <ProductsTable /> },
+  { path: '/admin', component: <Dashboard />, layout: 'adminDefault' },
+  { path: '/admin/login', component: <AdminLogin />, layout: 'adminLogin' },
+  { path: '/admin/products', component: <ProductsTable />, layout: 'adminDefault' },
   {
     path: '/admin/product/:adminProductId',
     component: <ProductSinglePage inputs={productInputs} title="update product" />,
+    layout: 'adminDefault',
   },
-  { path: '/admin/product/new', component: <ProductNew inputs={productInputs} title="Add New Product" /> },
-  { path: '/admin/users', component: <UsersTable /> },
+  {
+    path: '/admin/product/new',
+    component: <ProductNew inputs={productInputs} title="Add New Product" />,
+    layout: 'adminDefault',
+  },
+  { path: '/admin/users', component: <UsersTable />, layout: 'adminDefault' },
   {
     path: '/admin/user/:adminUserId',
     component: <UserSinglePage inputs={userInputs} title="update user" />,
+    layout: 'adminDefault',
   },
-  { path: '/admin/user/new', component: <UserNew inputs={userInputs} title="Add New User" /> },
+  { path: '/admin/user/new', component: <UserNew inputs={userInputs} title="Add New User" />, layout: 'adminDefault' },
 ];
 
 export { publicRoutes, privateRoutes };

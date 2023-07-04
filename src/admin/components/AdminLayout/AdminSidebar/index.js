@@ -2,10 +2,29 @@ import styles from './AdminSidebar.module.scss';
 import clsx from 'clsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTableColumns, faCartShopping, faUser, faGear, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import images from '../../../../assets/images';
+import useProducts from '../../../../context/useProducts';
 
 function AdminSidebar(props) {
+  const adminData = useProducts();
+  const [, setAdminLoggedin] = adminData.adminLoggedinContext;
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('adminToken');
+    setAdminLoggedin(false);
+    navigate('/admin/login');
+  };
+
+  useEffect(() => {
+    const adminToken = JSON.parse(localStorage.getItem('adminToken'));
+    if (adminToken === null) {
+      navigate('/admin/login');
+    }
+  });
+
   return (
     <aside className={clsx(styles.sidebar, props.className)}>
       <div className={styles.top}>
@@ -54,7 +73,7 @@ function AdminSidebar(props) {
           <div className={styles.color}></div>
           <div className={styles.color}></div>
         </div> */}
-        <div className={styles.logout}>
+        <div className={styles.logout} onClick={handleLogout}>
           <span>
             <FontAwesomeIcon icon={faRightFromBracket} />
           </span>

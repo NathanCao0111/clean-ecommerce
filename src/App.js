@@ -25,7 +25,11 @@ function App() {
           })}
 
           {privateRoutes.map((element, index) => {
-            return <Route key={index} path={element.path} element={<AdminLayout>{element.component}</AdminLayout>} />;
+            if (element.layout === 'adminDefault') {
+              return <Route key={index} path={element.path} element={<AdminLayout>{element.component}</AdminLayout>} />;
+            } else {
+              return <Route key={index} path={element.path} element={element.component} />;
+            }
           })}
         </Routes>
       </div>
