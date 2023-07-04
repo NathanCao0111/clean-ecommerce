@@ -7,11 +7,6 @@ import clsx from 'clsx';
 
 function Widget({ type }) {
   let data;
-
-  const amount = 100;
-  const diff = 20;
-  const num = 20;
-
   switch (type) {
     case 'sales':
       data = {
@@ -19,6 +14,10 @@ function Widget({ type }) {
         title: 'Total sales',
         isMoney: true,
         isDefault: true,
+        isNegative: false,
+        amount: '82,549.17',
+        diff: 20.9,
+        num: '18.4K',
       };
       break;
     case 'users':
@@ -27,6 +26,10 @@ function Widget({ type }) {
         title: 'Users',
         isMoney: false,
         isDefault: false,
+        isNegative: false,
+        amount: 78,
+        diff: 13,
+        num: '3.5K',
       };
       break;
     case 'orders':
@@ -35,6 +38,10 @@ function Widget({ type }) {
         title: 'Total orders',
         isMoney: false,
         isDefault: false,
+        isNegative: false,
+        amount: 262,
+        diff: 4.2,
+        num: '5K',
       };
       break;
     case 'refunded':
@@ -43,6 +50,10 @@ function Widget({ type }) {
         title: 'Refunded',
         isMoney: false,
         isDefault: false,
+        isNegative: true,
+        amount: 18,
+        diff: 9.1,
+        num: 6,
       };
       break;
     default:
@@ -58,18 +69,18 @@ function Widget({ type }) {
       <div className={styles.center}>
         <h3>
           {data.isMoney && '$'}
-          {amount}
+          {data.amount}
         </h3>
       </div>
       <div className={styles.bottom}>
-        <div className={clsx(styles.bottomLeft, styles.positive)}>
+        <div className={clsx(styles.bottomLeft, data.isNegative ? styles.negative : styles.positive)}>
           <span>
             <FontAwesomeIcon icon={faArrowUpRightDots} />
           </span>
-          <p>{diff}%</p>
+          <p>{data.diff}%</p>
         </div>
         <div className={styles.bottomRight}>
-          <p>+{num}K this week</p>
+          <p>+{data.num} this week</p>
         </div>
       </div>
     </section>

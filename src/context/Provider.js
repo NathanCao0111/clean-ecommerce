@@ -21,6 +21,7 @@ function Provider({ children }) {
         size: '150cm x 70cm',
       },
       category: 5,
+      orders: 26,
       id: '1',
     },
     {
@@ -42,6 +43,7 @@ function Provider({ children }) {
         size: '20cm x 10cm',
       },
       category: 4,
+      orders: 99,
       id: '2',
     },
     {
@@ -63,6 +65,7 @@ function Provider({ children }) {
         size: '15cm x 15cm',
       },
       category: 3,
+      orders: 59,
       id: '3',
     },
     {
@@ -84,6 +87,7 @@ function Provider({ children }) {
         size: '250cm x 60cm',
       },
       category: 1,
+      orders: 21,
       id: '4',
     },
     {
@@ -105,6 +109,7 @@ function Provider({ children }) {
         size: '20cm x 20cm',
       },
       category: 3,
+      orders: 36,
       id: '5',
     },
     {
@@ -126,6 +131,7 @@ function Provider({ children }) {
         size: '10cm x 5cm',
       },
       category: 6,
+      orders: 19,
       id: '6',
     },
     {
@@ -149,6 +155,7 @@ function Provider({ children }) {
         size: '20cm x 20cm',
       },
       category: 3,
+      orders: 61,
       id: '7',
     },
     {
@@ -170,6 +177,7 @@ function Provider({ children }) {
         size: '60cm x 20cm',
       },
       category: 1,
+      orders: 90,
       id: '8',
     },
     {
@@ -191,6 +199,7 @@ function Provider({ children }) {
         size: '45cm x 15cm',
       },
       category: 1,
+      orders: 79,
       id: '9',
     },
     {
@@ -212,6 +221,7 @@ function Provider({ children }) {
         size: '60cm x 40cm',
       },
       category: 5,
+      orders: 58,
       id: '10',
     },
     {
@@ -233,6 +243,7 @@ function Provider({ children }) {
         size: '20cm x 20cm',
       },
       category: 3,
+      orders: 94,
       id: '11',
     },
     {
@@ -254,6 +265,7 @@ function Provider({ children }) {
         size: '15cm x 15cm',
       },
       category: 3,
+      orders: 33,
       id: '12',
     },
     {
@@ -274,6 +286,7 @@ function Provider({ children }) {
         size: '20cm x 10cm',
       },
       category: 6,
+      orders: 100,
       id: '13',
     },
     {
@@ -295,6 +308,7 @@ function Provider({ children }) {
         size: '60cm x 30cm',
       },
       category: 5,
+      orders: 36,
       id: '14',
     },
     {
@@ -316,6 +330,7 @@ function Provider({ children }) {
         size: '65cm x 35cm',
       },
       category: 5,
+      orders: 56,
       id: '15',
     },
     {
@@ -337,6 +352,7 @@ function Provider({ children }) {
         size: '15cm x 10cm',
       },
       category: 2,
+      orders: 89,
       id: '16',
     },
     {
@@ -358,6 +374,7 @@ function Provider({ children }) {
         size: '25cm x 15cm',
       },
       category: 3,
+      orders: 15,
       id: '17',
     },
     {
@@ -379,6 +396,7 @@ function Provider({ children }) {
         size: '20cm x 15cm',
       },
       category: 3,
+      orders: 93,
       id: '18',
     },
     {
@@ -400,6 +418,7 @@ function Provider({ children }) {
         size: '60cm x 30cm',
       },
       category: 5,
+      orders: 91,
       id: '19',
     },
     {
@@ -421,6 +440,7 @@ function Provider({ children }) {
         size: '10cm x 5cm',
       },
       category: 6,
+      orders: 24,
       id: '20',
     },
   ]);
