@@ -81,3 +81,11 @@
 .notify.slideIn {
   top: 0;
 }
+
+@media (max-width: 600px) {
+  .container {
+    .content {
+      width: 80%;
+    }
+  }
+}

@@ -18,6 +18,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  .logo {
+    margin-left: -5rem;
+  }
 }
 
 .nav {
@@ -25,7 +28,7 @@
   position: relative;
   div {
     position: relative;
-    left: -32px;
+    left: -24px;
     top: -16px;
     background-color: #b6002c;
     border-radius: 50%;
@@ -76,5 +79,64 @@
 }
 
 .navCart {
-  cursor: pointer;
+  margin-right: 1.5rem;
+}
+
+.navBars {
+  display: none;
+}
+
+.mobileNavFull {
+  display: none;
+}
+
+@media (max-width: 600px) {
+  .container {
+    .mobileDisplay {
+      display: none;
+    }
+  }
+
+  .navBars {
+    display: inline-block;
+  }
+
+  .mobileNavFull {
+    background-color: #f3f3f3;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    svg {
+      cursor: pointer;
+      font-size: 2.3rem;
+      position: absolute;
+      top: 50px;
+      right: 25px;
+    }
+    .mobileLinks {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      a {
+        font-size: 3rem;
+      }
+    }
+  }
+
+  .openFlex {
+    display: flex !important;
+  }
+
+  .closeFlex {
+    display: none;
+  }
 }

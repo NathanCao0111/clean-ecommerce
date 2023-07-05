@@ -41,3 +41,24 @@
     }
   }
 }
+
+@media (max-width: 750px) {
+  .container {
+    .content {
+      width: 75%;
+      .header {
+        .search {
+          width: unset;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    .content {
+      width: 100%;
+    }
+  }
+}

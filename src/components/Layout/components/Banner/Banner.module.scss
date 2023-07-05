@@ -58,3 +58,14 @@
     }
   }
 }
+
+@media (max-width: 600px) {
+  .container {
+    .text {
+      width: 100%;
+    }
+    .img {
+      display: none;
+    }
+  }
+}

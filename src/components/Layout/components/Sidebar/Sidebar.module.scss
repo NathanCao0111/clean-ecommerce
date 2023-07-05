@@ -48,3 +48,26 @@
     color: #000;
   }
 }
+
+@media (max-width: 1024px) {
+  .container {
+    .filter {
+      .input.inputRange {
+        display: flex;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .container {
+    width: 20%;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    display: none;
+  }
+}

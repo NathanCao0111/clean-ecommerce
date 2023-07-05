@@ -46,11 +46,28 @@
 
 @media (max-width: 750px) {
   .container {
-    padding: 33rem 0 11rem 0;
     .grid {
       display: grid;
       gap: 2rem;
       grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    .grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .container {
+    .grid {
+      grid-template-columns: 1fr;
     }
   }
 }

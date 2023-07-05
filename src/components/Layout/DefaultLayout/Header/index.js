@@ -1,7 +1,7 @@
 import styles from './Header.module.scss';
 import images from '../../../../assets/images';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart, faUser, faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faUser, faRightFromBracket, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import clsx from 'clsx';
@@ -17,6 +17,7 @@ function Header() {
   const [, setIsCart] = productsData.isCartContext;
 
   const [isDropdown, setIsDropdown] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const cartProducts = useSelector((state) => state.cart.cartProducts);
   const dispatch = useDispatch();
@@ -82,13 +83,13 @@ function Header() {
           )}
           <Link
             to="/categories"
-            className={clsx(styles.navItem, styles.link)}
+            className={clsx(styles.navItem, styles.link, styles.mobileDisplay)}
             onClick={() => setCheckboxCategories([])}
           >
             CATEGORIES
           </Link>
-          <Link to="/product/1" className={clsx(styles.navItem, styles.link)}>
-            PRODUCT PAGE
+          <Link to="/product/1" className={clsx(styles.navItem, styles.link, styles.mobileDisplay)}>
+            PRODUCTS
           </Link>
           <FontAwesomeIcon
             icon={faShoppingCart}
@@ -96,7 +97,30 @@ function Header() {
             onClick={() => setIsCart(true)}
           />
           <div>{cartProducts.length}</div>
+          <FontAwesomeIcon
+            icon={faBars}
+            className={clsx(styles.navItem, styles.navBars)}
+            onClick={() => setMobileNavOpen(true)}
+          />
         </nav>
+        <div className={clsx(styles.mobileNavFull, mobileNavOpen ? styles.openFlex : styles.closeFlex)}>
+          <FontAwesomeIcon icon={faXmark} onClick={() => setMobileNavOpen(false)} />
+          <div className={styles.mobileLinks}>
+            <Link
+              to="/categories"
+              className={clsx(styles.navItem, styles.link)}
+              onClick={() => {
+                setMobileNavOpen(false);
+                setCheckboxCategories([]);
+              }}
+            >
+              CATEGORIES
+            </Link>
+            <Link to="/product/1" className={clsx(styles.navItem, styles.link)} onClick={() => setMobileNavOpen(false)}>
+              PRODUCTS
+            </Link>
+          </div>
+        </div>
       </div>
     </header>
   );
