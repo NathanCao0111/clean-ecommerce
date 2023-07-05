@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/clean-ecommerce/static/css/main.93218d3f.css",
-    "main.js": "/clean-ecommerce/static/js/main.ecff8745.js",
+    "main.css": "/clean-ecommerce/static/css/main.3e937c4b.css",
+    "main.js": "/clean-ecommerce/static/js/main.d0a4f1bf.js",
     "static/js/787.be4264c8.chunk.js": "/clean-ecommerce/static/js/787.be4264c8.chunk.js",
     "static/media/featuredOne.jpg": "/clean-ecommerce/static/media/featuredOne.446715480ef369a5c8c7.jpg",
     "static/media/featuredThreeLow.jpg": "/clean-ecommerce/static/media/featuredThreeLow.6e1f0656fecc87d6c287.jpg",
@@ -9,14 +9,14 @@
     "static/media/bannerTwo.jpg": "/clean-ecommerce/static/media/bannerTwo.03a2ebf8d998e53d1019.jpg",
     "static/media/featuredTwo.jpg": "/clean-ecommerce/static/media/featuredTwo.15918c1c3945e6b53edf.jpg",
     "static/media/bannerOne.jpg": "/clean-ecommerce/static/media/bannerOne.021adea5caa612e7dea0.jpg",
-    "static/media/clean-logo.svg": "/clean-ecommerce/static/media/clean-logo.0fa13dd6cbe957516ec2078966e14d2d.svg",
+    "static/media/clean-logo.svg": "/clean-ecommerce/static/media/clean-logo.4510ffcb5c82e8c4314c92b35a44632d.svg",
     "index.html": "/clean-ecommerce/index.html",
-    "main.93218d3f.css.map": "/clean-ecommerce/static/css/main.93218d3f.css.map",
-    "main.ecff8745.js.map": "/clean-ecommerce/static/js/main.ecff8745.js.map",
+    "main.3e937c4b.css.map": "/clean-ecommerce/static/css/main.3e937c4b.css.map",
+    "main.d0a4f1bf.js.map": "/clean-ecommerce/static/js/main.d0a4f1bf.js.map",
     "787.be4264c8.chunk.js.map": "/clean-ecommerce/static/js/787.be4264c8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.93218d3f.css",
-    "static/js/main.ecff8745.js"
+    "static/css/main.3e937c4b.css",
+    "static/js/main.d0a4f1bf.js"
   ]
 }
