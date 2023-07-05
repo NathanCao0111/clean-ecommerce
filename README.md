@@ -5,6 +5,7 @@ Clean is an eCommerce website that minimalistic and simple design lifestyle enth
 ## Built With:
 
 - [ReactJS](https://react.dev/)
+- [Redux](https://redux.js.org/)
 - [SASS](https://sass-lang.com/)
 - [Vanilla Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5)
@@ -15,6 +16,7 @@ Clean is an eCommerce website that minimalistic and simple design lifestyle enth
 - [x] Make the website responsive
 - [x] Add swiping functionality for the product's carousel.
 - [x] Add a filter to sort products by price.
+- [x] Persist shopping cart with Redux
 - [x] Add Admin page
 - [ ] Add Payment page
 - [ ] Multi-language Support
