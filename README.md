@@ -15,6 +15,7 @@ Clean is an eCommerce website that minimalistic and simple design lifestyle enth
 - [x] Make the website responsive
 - [x] Add swiping functionality for the product's carousel.
 - [x] Add a filter to sort products by price.
+- [x] Add Admin page
 - [ ] Add Payment page
 - [ ] Multi-language Support
   - [ ] Vietnamese
