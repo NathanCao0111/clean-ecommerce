@@ -63,3 +63,16 @@
   font-size: 3.8rem;
   font-weight: 600;
 }
+
+@media (max-width: 750px) {
+  .container {
+    display: grid;
+    gap: 13px;
+    grid-template-areas:
+      'one two'
+      'three three-low';
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 500px;
+  }
+}

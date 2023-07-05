@@ -50,3 +50,11 @@
     }
   }
 }
+
+@media (max-width: 750px) {
+  .container {
+    .text {
+      padding: 0 4rem;
+    }
+  }
+}
