@@ -8,6 +8,7 @@ import Provider from './context/Provider';
 import { persistor, store } from './redux/store';
 import { Provider as ReduxProvider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { HashRouter as Router } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,7 +17,9 @@ root.render(
       <PersistGate loading={'loading'} persistor={persistor}>
         <Provider>
           <GlobalStyles>
-            <App />
+            <Router>
+              <App />
+            </Router>
           </GlobalStyles>
         </Provider>
       </PersistGate>

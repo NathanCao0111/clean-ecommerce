@@ -7,6 +7,7 @@ import * as Yup from 'yup';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXmarkSquare } from '@fortawesome/free-solid-svg-icons';
 import useProducts from '../../../context/useProducts';
+import md5 from 'md5';
 
 function AdminLogin() {
   const validationSchema = Yup.object().shape({
@@ -46,8 +47,9 @@ function AdminLogin() {
 
   const handleLoginSubmit = (values) => {
     const { email, password } = values;
+    const hashed = md5(email);
     if (email === 'nathancao0111@gmail.com' && password === '12345678') {
-      const adminToken = JSON.stringify(email);
+      const adminToken = JSON.stringify(hashed);
       localStorage.setItem('adminToken', adminToken);
       setAdminLoggedin(true);
     } else {
